@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Reveal.js template</title>
+  <!-- credit https://bl.ocks.org/elipousson/f64814b1ee4aab5d83775bfbf556d35a -->
+
+  <meta name="description" content="Simple Reveal.js slidedeck template. Source files loaded from jsDelivr.">
+  <meta name="author" content="jitesh@spinspire.com">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css">
+  <!-- see https://cdnjs.com/libraries/reveal.js/3.6.0 for what's available -->
+  <!-- examples: simple, beige, black, blood, league, moon, night, serif, sky, solarized, white ... -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/sky.css" id="theme">
+  <!-- see: https://cdnjs.com/libraries/highlight.js/ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/ir-black.min.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    // Load print, pdf stylesheets from jsDelivr
+    var srcUrlPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = srcUrlPrefix + (window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css');
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  <style>
+    body {
+      /* make it totally black */
+      background-color: black;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .col {
+      flex: 1
+    }
+
+
+
+.left {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:50%;
+  z-index:-10;
+}
+
+.right {
+  /*left:31.25%;*/
+  top: 75px;
+  float: right;
+  text-align: right;
+  z-index:-10;
+  width:50%;
+}
+
+ul {
+  padding-left: 5px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+
+
+       <section>
+        <h1>Raster Data</h1>
+        <div class="container" style="text-align:center;">
+          <p>A simple, storage intensive format best suited for <b>continuous fields</b>.</p>
+      </section>
+
+       <section>
+        <h2>Raster Data Model</h2>
+        <div class="container">
+          <div class="left" style="text-align: Left;">
+          <p>Represents space <b>continuously</b>:</p>
+          <ul>
+            <li>Rectangular grid of equally sized cells</li>
+            <li>Each cell only has <b>one value</b></li>
+          </ul>
+           </div>
+          <div class="right" style="text-align: Right;">
+          <p><img src="images/03-raster-example.png" width="600"></p>
+           </div>
+      </section>
+
+
+       <section>
+        <h2>Raster Data Model</h2>
+        <div class="container">
+          <div class="left" style="text-align: Left;">
+          <p>Multiple attributes, require multiple <b>bands</b>
+          <ul>
+            <li>Standard color photos have three bands:
+              <ul>
+                <li>Red, green, & blue</li>
+              </ul>
+            </li>
+            <li>LANDSAT8 has 11 bands:
+              <ul>
+                <li>"False Color Images"</li>
+                <li>Spectral Indicies (NDVI)</li>
+              </ul>
+            </li>
+          </ul>
+        </p>  
+           </div>
+          <div class="right" style="text-align: center;">
+          <img src="images/DeltaMap.png" width="350">
+
+           </div>
+      </section>
+
+       <section>
+        <h2>Resolution & Extent</h2>
+        <div class="container">
+          <div class="left" style="text-align: Left;">
+          <p><b>Resolution</b>: cell size.</p>
+          <ul>
+            <li>1 m x 1 m = 1 m<sup>2</sup></li>
+          </ul>
+          <p><b>Extent</b>: depends on number of cells.</p>
+          <ul>
+            <li>5 rows, 5 columns</li>
+            <li>1 m cell size</li>
+            <li>Covers 5 m x 5 m</li>
+          </ul>
+           </div>
+          <div class="right" style="text-align: Right;">
+          <p><img src="images/03-raster-example.png" width="600"></p>
+           </div>
+      </section>
+
+
+      <section>
+        <h2>Resolution & Extent</h2>
+        <div class="container">
+          <div class="col" style="text-align: Left;">
+          <p><b>Resolution</b>: 10 m cell size = 100 m<sup>2</sup></p>
+          <p><b>Extent</b>: varies with number of cells.</p>
+             <table>
+                  <tr>
+                    <th>Rows</th>
+                    <th>Columns</th>
+                    <th>Extent</th>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>50 m x 50 m</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>50 m x 100 m</td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>1 km x 1 km</td>
+                  </tr>
+                </table> 
+           </div>
+      </section>
+
+   
+       <section>
+        <h2>Implications</h2>
+        <div class="container">
+          <div class="col" style="text-align: Left;">
+          <p>Loss of information during rasterization.</p>
+          <ul>
+            <li>A "bigger" issue for larger cells.</li>
+            <li>At a certain point features become unrecognizable.</li>
+            <li>Higher resolution = larger file for equivalent areas.</li>
+          </ul>
+           </div>
+          <div class="col" style="text-align: Right;">
+          <p><img src="images/03-raster-resolution.png" width="400"></p>
+           </div>
+      </section>
+
+       <section>
+        <h2>Mixed Pixel Problem</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <p>One cell: one value</p>
+          <ul>
+            <li>What if it covers multiple values?</li>
+            <ul>
+              <li>A: Winner take all</li>
+              <li>B: Cell center </li>
+            </ul>
+            <li>Other options?</li>
+            
+          </ul>
+           </div>
+           <div class="col">
+             
+            <img src="images/03-mixed-pixel.jpg">
+           </div>
+         </section>
+
+
+       <section style="text-align: left;">
+        <h2>File Size</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+            <p>The number of cells per image dictates file size:<br>Cells = rows x columns x bands.  </p>
+             <table>
+                  <tr>
+                    <th>Extent</th>
+                    <th>Bands</th>
+                    <th>Cell Size</th>
+                    <th>Cells</th>
+                  </tr>
+                  <tr>
+                    <td>1 x 1 km</td>
+                    <td>1</td>
+                    <td>100 m</td>
+                    <td>100 cells</td>
+                  </tr>
+                  <tr>
+                    <td>1 x 1 km</td>
+                    <td>1</td>
+                    <td>1 m</td>
+                    <td>1,000,000 cells</td>
+                  </tr>
+                    <td>1 x 1 km</td>
+                    <td>3</td>
+                    <td>100 m</td>
+                    <td>300 cells</td>
+                  </tr>
+                  <tr>
+                    <td>1 x 1 km</td>
+                    <td>3</td>
+                    <td>1 m</td>
+                    <td>3,000,000 cells</td>
+                  </tr>
+                </table> 
+           </div>
+         </section>
+
+
+
+       <section style="text-align: left;">
+        <h2>File Size</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+            <p>Increases <b>exponentially</b> with resolution and <b>linearly</b> with number of bands.</p>
+             <table>
+                  <tr>
+                    <th>Extent</th>
+                    <th>Bands</th>
+                    <th>Cell Size</th>
+                    <th>Cells</th>
+                  </tr>
+                  <tr>
+                    <td>1 x 1 km</td>
+                    <td>1</td>
+                    <td>100 m</td>
+                    <td>100 cells</td>
+                  </tr>
+                  <tr>
+                    <td>1 x 1 km</td>
+                    <td>1</td>
+                    <td>1 m</td>
+                    <td>1,000,000 cells</td>
+                  </tr>
+                    <td>1 x 1 km</td>
+                    <td>3</td>
+                    <td>100 m</td>
+                    <td>300 cells</td>
+                  </tr>
+                  <tr>
+                    <td>1 x 1 km</td>
+                    <td>3</td>
+                    <td>1 m</td>
+                    <td>3,000,000 cells</td>
+                  </tr>
+                </table> 
+           </div>
+         </section>
+
+       <section style="text-align: left;">
+        <h2>Why does this matter?</h2>
+        <div class="container">
+          <div class="left" style="text-align: left;">
+            <p>Downloading a decade (87,600 bands) of snow cover data:
+              <ul>
+                <li>5 min for the orange area</li>
+                <li>2 hrs for the red area (17x larger)</li>
+              </ul>
+
+           </div>
+           <div class="right">
+             
+            <img src="images/03-ecmwf.png">
+           </div>
+         </section>
+
+
+       <section style="text-align: left;">
+        <h2>Why does this matter?</h2>
+        <div class="container">
+          <div class="left" style="text-align: left;">
+            <p>Processing times will increase as well:
+              <ul>
+                <li>Any manipulation or analysis of the orange area will be much faster than the red area</li>
+              </ul>
+           </div>
+           <div class="right">
+            <img src="images/03-ecmwf.png">
+           </div>
+         </section>
+
+       <section>
+        <h2>Metadata in ArcPro</h2>
+        <div class="container">
+          <div class="left" style="text-align: Left;">
+            <img src="images/van_greenest.png" width="600">
+           </div>
+          <div class="right" style="text-align: Right;">
+          <img src="images/extent.png" width="600">
+           </div>
+      </section>
+
+
+
+       <section>
+        <h2>Raster Overlay</h2>
+        <div class="container">
+          <div class="col" style="text-align: Left;">
+          <p>A <b>key advantage</b> of raster data model is how algebraic expressions can be performed efficiently.</p>
+          <ul>
+            <li>A: Winter Temperature</li>
+            <li>B: Summer Temperature</li>
+            <li>Range: B-A</li>
+            <li>Average: (A+B)/2</li>
+          </ul>
+           </div>
+          <div class="col" style="text-align: center;">
+          <img src="images/03-raster-overlay.png" width="500">
+           </div>
+      </section>
+
+
+       <section style="text-align: left;">
+        <h2>Key Advantages</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <!-- <p>Usually <b>continuous fields</b><br> -->
+          <ul>
+            <li>Well suited for continuous phenomena:</li>
+            <ul>
+              <li>Continuous in <b>space</b> and <b>time</b>.</li>
+            </ul>
+          </li>
+            <li>Simple data structure makes overlay is easy and efficient.</li>
+          </ul>
+           </div>
+
+         </section>
+
+
+       <section style="text-align: left;">
+        <h2>GeoTIFF</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <p>One of the most common/functional raster formats, based of the Tag Image File Format (TIFF).  A TIFF file stores metadata (data about the data) as tags.  A GeoTIFF is a standard .tif image format plus additional tags spatial tags denoting spatial information including: </p>
+          <ul>
+            <li>Extent (minimum x,y and maximum x,y)</li>
+            <li>Resolution (cell size)</li>
+            <li>Projection, Coordinate system, and datum</li>
+           </div>
+
+         </section>
+
+
+       <section style="text-align: left;">
+        <h2>Other file types</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <p>Raster data can come in many different formats.  You will likely encounter when working with raster data include:</p>
+          <ul'>
+            <li>IMG - A proprietary image format commonly used by ESRI products</li>
+            <li>JPEG2000 - A geospatial version of the common .jpg image type</li>
+            <li>ASCII - An older human readable format (simple text file) with slower performance than the types listed above</li>
+           </div>
+
+         </section>
+
+
+
+  </div><!-- .slides -->
+
+  </div><!-- .reveal -->
+
+  <!-- not needed since 3.8.0 -->
+  <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/head.min.js"><script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js"></script>
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      overview: false,
+      loop: false,
+      margin: 0.04,
+      width: 1100,
+
+      transition: 'none', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins, loaded from jsDelivr
+      dependencies: [
+        { src: srcUrlPrefix + 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+        { src: srcUrlPrefix + 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: srcUrlPrefix + 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: srcUrlPrefix + 'plugin/highlight/highlight.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+        { src: srcUrlPrefix + 'plugin/zoom-js/zoom.js', async: true },
+        { src: srcUrlPrefix + 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>
