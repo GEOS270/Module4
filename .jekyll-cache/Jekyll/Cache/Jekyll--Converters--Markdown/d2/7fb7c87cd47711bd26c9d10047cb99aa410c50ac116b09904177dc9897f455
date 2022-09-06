@@ -1,0 +1,130 @@
+I"�<details open="">
+  <summary class="text-delta">
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#google-earth-engine-sign-up" id="markdown-toc-google-earth-engine-sign-up">Google Earth Engine Sign Up</a></li>
+  <li><a href="#create-a-project" id="markdown-toc-create-a-project">Create a Project</a>    <ol>
+      <li><a href="#set-up-your-geodatabase" id="markdown-toc-set-up-your-geodatabase">Set Up Your GeoDatabase</a></li>
+    </ol>
+  </li>
+  <li><a href="#create-the-project-boundary-file" id="markdown-toc-create-the-project-boundary-file">Create the Project Boundary File</a></li>
+</ol>
+
+</details>
+<hr />
+
+<h1 id="google-earth-engine-sign-up">Google Earth Engine Sign Up</h1>
+
+<p>We are going to use Google Earth Engine (GEE) to download some satelite data.  This will require a Google account so that you can access GEE and Google Drive.</p>
+
+<p><strong class="label label-red">1</strong> Go to <a href="https://www.google.com/">google.com</a> and create an account following the Sign In button if you don’t already have one.</p>
+
+<ul>
+  <li>A google account will give you access to google drive with 15 GB free storage space!  This could be a useful resource when working on your final projects!</li>
+</ul>
+
+<p><strong class="label label-red">2</strong> Then got to <a href="https://earthengine.google.com/">earthengine</a> and sign up</p>
+
+<ul>
+  <li>Choose sign up in the top right.</li>
+  <li>Follow the instructions to sign up using your Google account.</li>
+  <li>Once you have gone through the sign up process, you can close GEE.  We’ll go back to it later.</li>
+</ul>
+
+<p><strong>Note</strong> If you are unable to create an account, contact your TA for a link to the data set.</p>
+
+<h1 id="create-a-project">Create a Project</h1>
+
+<p><strong class="label label-blue">1</strong> Create a new project in ArcPro called <strong>Van_NDVI</strong>.</p>
+<ul>
+  <li>You can reference the <a href="https://geos270.github.io/Module1/docs/Application_Part3.html">Module 1</a> for a refresher on setting up a project.</li>
+</ul>
+
+<p><strong class="label label-blue">2</strong> We’re going to work with some Canadian Census Data.  You learned how to download census data in Module 3.  I’ve gone ahead and downloaded the relevant data for you already to save a bit of time.  You can use the button below to download the data.</p>
+
+<ul>
+  <li>Extract the Van_Census.zip file to your newly created project Van_NDVI folder.</li>
+</ul>
+
+<p><a href="https://github.com/GEOS270/Module4//raw/main/data/Van_Census.zip" class="btn btn-blue">Download</a></p>
+
+<h2 id="set-up-your-geodatabase">Set Up Your GeoDatabase</h2>
+
+<p>By default, ArcPro creates a geodatabase with every new project.  You will see one called <strong>Van_NDVI.gdb</strong> in your project folder.</p>
+
+<p><strong>Geodatabase</strong>: A file management structure that is unique to ESRI products. You don’t have to store your data in a geodatabase (.gdb), but they have some enhanced functionality that makes them better than regular folders in some circumstances.  One helpful thing we can do in a .gdb, is create a feature dataset to store our census data.</p>
+
+<p><strong>Feature Dataset</strong>: A collections of feature classes that are all in the same coordinate system.  When you add a data to a feature dataset, it will <em>automatically</em> be projected into the coordinate system we specify.  This can help us avoid making mistakes like working with data that is in the wrong coordinate system!  We are going to use a Universal Transverse Mercator projection  (UTM Zone 10N) since we are working with a small area (Vancouver).</p>
+
+<p><strong>Feature Class</strong>: A vector data layer stored in a geodatabase.  Its a special file type created by ESRI to store data effectively within ArcGIS Pro.  When vector data layers are not stored in a geodatabase, they are stored in other formats, such as shapefiles or geojsons.  We’ll cover the distinctions more in lecture.</p>
+
+<p>Follow the steps below to setup your geodatabase.  You can reference the video to see how to create one.</p>
+
+<p><strong class="label label-red">1</strong> Create a new Feature Dataset named <strong>CensusData</strong> feature dataset.</p>
+
+<ul>
+  <li>Right click Van_NDVI.gdb » New Feature Dataset</li>
+</ul>
+
+<p><strong class="label label-red">2</strong> Set the Coordinate System to NAD 1983 UTM Zone 10N</p>
+
+<ul>
+  <li><strong>NAD 1983</strong> is the name of the datum (North American Datum 1983), <strong>UTM Zone 10N</strong> is the name of the projection (Universal Transverse Mercator, Zone 10 N)</li>
+  <li>You can set this coordinate system to your favorites by right clicking and selecting add to favorites.  This will make it easier to find in the future!</li>
+</ul>
+
+<p><strong class="label label-red">3</strong> After you click Run, it will appear in your Van_NDVI.gdb.  Now we’re going to add some census data.</p>
+
+<ul>
+  <li>Right click on your newly created <strong>CensusData</strong> feature dataset » Import Feature Class(es)</li>
+  <li>Add the two census data layers you downloaded: <strong>Van_DA_2016.shp</strong> and <strong>VanCMS_CT_2016.shp</strong></li>
+</ul>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/videos/FeatureDataset.mp4" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/videos/FeatureDataset.mp4" target="_blank">View Image in New Tab</a></p>
+
+<h1 id="create-the-project-boundary-file">Create the Project Boundary File</h1>
+
+<p>We need to create a simple boundary file to upload to Google Earth Engine so we can download satellite for our study area.  We can do this quickly using the dissolve tool.</p>
+
+<p><strong class="label label-red">1</strong> In the Geoprocessing pane, find the Dissolve tool.</p>
+
+<p><strong class="label label-red">2</strong> Set VanCMA_CT_2016 as the input</p>
+
+<ul>
+  <li>
+    <p><strong>Note</strong>: The output will be saved to your Van_NDVI.gdb as a feature class by default, but feature classes can not be read by Google Earth Engine.</p>
+  </li>
+  <li>
+    <p><em>Instead</em>: save the output as a <strong>Shapefile</strong> (.shp) one level up in your Van_NDVI project folder and name it <strong>Boundary</strong>.  Shapefiles are just a different way of storing vector data.</p>
+  </li>
+</ul>
+
+<p><strong class="label label-red">3</strong> Remove this layer from your table of contents.  We don’t need it in this map project.</p>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/videos/Dissolve.mp4" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/videos/Dissolve.mp4" target="_blank">View Image in New Tab</a></p>
+:ET

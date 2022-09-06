@@ -36,14 +36,15 @@ We are going to use Google Earth Engine (GEE) to download some satelite data.  T
 
 # Create a Project
 
-**1**{: .label .label-blue } Create a new project in ArcPro called Van_NDVI.  You can reference the [Module 1](https://june-skeeter.github.io/Module1_GEOS270/docs/Application_Part3.html#setting-up-a-project) for a refresher on setting up a project.
+**1**{: .label .label-blue } Create a new project in ArcPro called **Van_NDVI**.
+* You can reference the [Module 1](https://geos270.github.io/Module1/docs/Application_Part3.html) for a refresher on setting up a project.
 
 
-**2**{: .label .label-blue } We're going to work with some Canadian Census Data.  It has already been downloaded for you, we'll learn how to download census data in Module 3.  For now, use the button below to download the data.
+**2**{: .label .label-blue } We're going to work with some Canadian Census Data.  You learned how to download census data in Module 3.  I've gone ahead and downloaded the relevant data for you already to save a bit of time.  You can use the button below to download the data.
 
 * Extract the Van_Census.zip file to your newly created project Van_NDVI folder.
 
-[Download](https://github.com/June-Skeeter/Module2_GEOS270/raw/main/data/Van_Census.zip){: .btn .btn-blue }
+[Download](https://github.com/GEOS270/Module4//raw/main/data/Van_Census.zip){: .btn .btn-blue }
 
 
 
@@ -54,9 +55,11 @@ By default, ArcPro creates a geodatabase with every new project.  You will see o
 
 **Geodatabase**: A file management structure that is unique to ESRI products. You don't have to store your data in a geodatabase (.gdb), but they have some enhanced functionality that makes them better than regular folders in some circumstances.  One helpful thing we can do in a .gdb, is create a feature dataset to store our census data.
 
-**Feature Dataset**: A collections of feature classes that are all in the same coordinate system.  When you add a data to a feature dataset, it will *automatically* be projected into the coordinate system we specify.  This can help us avoid making mistakes like working with data that is in the wrong coordinate system!  We are going to use a Universal Transverse Mercator projection  (UTM Zone 10N) since we are working with a small area (Vancouver).  
+**Feature Dataset**: A collections of feature classes that are all in the same coordinate system.  When you add a data to a feature dataset, it will *automatically* be projected into the coordinate system we specify.  This can help us avoid making mistakes like working with data that is in the wrong coordinate system!  We are going to use a Universal Transverse Mercator projection  (UTM Zone 10N) since we are working with a small area (Vancouver).
+* Feature Datasets are only used for **Vector** Data  
 
 **Feature Class**: A vector data layer stored in a geodatabase.  Its a special file type created by ESRI to store data effectively within ArcGIS Pro.  When vector data layers are not stored in a geodatabase, they are stored in other formats, such as shapefiles or geojsons.  We'll cover the distinctions more in lecture.
+* Feature Class is a type of **Vector** data unique to ESRI programs
 
 Follow the steps below to setup your geodatabase.  You can reference the video to see how to create one.
 

@@ -2,7 +2,7 @@
 layout: default
 title: Raster Data
 parent: Spatial Data Models
-grand_parent: Lecture Content
+# grand_parent: Lecture Content
 nav_order: 2
 ---
 <!-- 

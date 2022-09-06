@@ -1,0 +1,19 @@
+I"½<h1 id="a-bit-about-data">A Bit About Data</h1>
+
+<p>Before we think about how we represent data in a GIS specifically, we need to take a step back and think about what data is?</p>
+
+<ul>
+  <li>
+    <p>Data is information describing some phenomenon.</p>
+  </li>
+  <li>
+    <p>The <strong>type of phenomenon</strong> being represented will often influence <em>how</em> we represent it.</p>
+  </li>
+  <li>
+    <p>There are different types of data too.  Some is numeric, some is purely descriptive.  Different types of data have different rules we must consider when working with them.</p>
+  </li>
+  <li>
+    <p>Spatial data is special!  There are unique considerations we need to make.</p>
+  </li>
+</ul>
+:ET

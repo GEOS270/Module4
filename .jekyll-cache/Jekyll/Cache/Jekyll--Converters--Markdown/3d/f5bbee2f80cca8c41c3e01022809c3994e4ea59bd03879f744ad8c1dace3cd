@@ -1,0 +1,20 @@
+I"�<h1 id="spatial-is-special">Spatial is Special</h1>
+
+<p>You might encounter the phrase “Spatial is special” in your time studying GIS.  Spatial data is the foundation of Geographic Information Science, it is what distinguishes GIS from the broader field of data science.  This was succinctly summarized by Waldo Tobler in <strong>The First Law of Geography</strong>:</p>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/Toblers_Law.html" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/Toblers_Law.html" target="_blank">View Image in New Tab</a></p>
+
+<p>Download the slides as a .pdf <a href="https://raw.githubusercontent.com/June-Skeeter/Module2_GEOS270/main/docs/content/Toblers_Law.pdf">here</a></p>
+:ET

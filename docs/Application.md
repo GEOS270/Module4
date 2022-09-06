@@ -7,13 +7,16 @@ nav_order: 3
 
 # Overview
 
-This lab gives you an introduction into how to conduct a GIS workflow might go.  We are going to attempt to answer this **research question**:
+This lab gives you an introduction into how to conduct a "full" GIS workflow.
 
-* What is the relationship between neighborhood green vegetation coverage and income in Vancouver?
+## Research Question
+
+What is the relationship between neighborhood green vegetation coverage and income in Vancouver?
 
 
 # Workflow
-How we will answer the question:
+
+How we will answer the research question:
 
 1) Estimate vegetation coverage with satellite data and overlay census data.
 

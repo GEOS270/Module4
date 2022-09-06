@@ -1,0 +1,7 @@
+I"Þ<h1 id="spatial-data-models">Spatial Data Models</h1>
+
+<p>Spatial Data has some unique properties which mean we need to implement specific strategies to work with it.  There are two key formats we work with in GIS for spatial data: <strong>Raster</strong> and <strong>Vector</strong>.  Both models can be used to represent most spatial phenomena; but they are not equally suited for all applications.</p>
+
+<p><img src="content/images/03-vector-v-raster.jpg" width="900" /></p>
+
+:ET

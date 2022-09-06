@@ -1,0 +1,187 @@
+I"�<h1 id="assessment">Assessment</h1>
+
+<p>You can use the submit your answers to the Assessment via the Module 2 Quiz on Canvas.  Questions are listed here with hyperlinks to the relevant section of the module if you need help finding answers.</p>
+
+<h2 id="written-answers--file-uploads">Written Answers &amp; File Uploads</h2>
+
+<p>Written answers should be brief but they should adequately answer the question.  Bullet point format is sufficient unless otherwise specified.  All written answers &amp; maps will be evaluated following this general rubrics below.</p>
+
+<ul>
+  <li>Scores &amp; categories are general guides, you TA may assign scores between these levels</li>
+  <li>Your TA will provide brief comments where applicable, if you need more feedback you can follow up with your TA.</li>
+</ul>
+
+<p><strong>Written Answer Rubric</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>Category</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0%</td>
+      <td>Missing</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>40%</td>
+      <td>Insufficient</td>
+      <td>Minimal effort, missing major key points, or serious logical flaws</td>
+    </tr>
+    <tr>
+      <td>60%</td>
+      <td>Below Expectations</td>
+      <td>Missing a few key points or minor logical flaws</td>
+    </tr>
+    <tr>
+      <td>80%</td>
+      <td>Met Expectations</td>
+      <td>Hits key points and mostly well constructed</td>
+    </tr>
+    <tr>
+      <td>100%</td>
+      <td>Exceeds Expectations</td>
+      <td>Clearly thought out, concise, and astute</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Map Rubric</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>Category</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0%</td>
+      <td>Missing</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>40%</td>
+      <td>Insufficient</td>
+      <td>Serious errors in analysis, missing data, or major stylistic issues</td>
+    </tr>
+    <tr>
+      <td>60%</td>
+      <td>Below Expectations</td>
+      <td>Minor errors in analysis or multiple stylistic issues</td>
+    </tr>
+    <tr>
+      <td>80%</td>
+      <td>Met Expectations</td>
+      <td>Error free analysis, minor stylistic issue</td>
+    </tr>
+    <tr>
+      <td>100%</td>
+      <td>Exceeds Expectations</td>
+      <td>Error free analysis and clean, aesthetically pleasing map</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h1 id="lecture-content-questions">Lecture Content Questions</h1>
+
+<p><a href="Content_Part1_1.md"><strong>1</strong></a>
+<strong>__</strong> have well defined boundaries.  They are countable, meaning there is only a finite number of them.</p>
+
+<p><a href="Content_Part1_1.md"><strong>2</strong></a>
+<strong>__</strong> lack well defined boundaries.  Because of this, they can be measured at an infinite number of locations.</p>
+
+<p><a href="Content_Part1_1.md"><strong>3</strong></a>
+We rarely work with multiple types of phenomena at once in GIS because it is too complicated. [T/F]</p>
+
+<p><a href="Content_Part1_2.md"><strong>4</strong></a>
+For these data types, we cannot calculate meaningful numerical statistics.  (Select all that apply).</p>
+
+<ul>
+  <li>Nominal</li>
+  <li>Ordinal</li>
+  <li>Interval</li>
+  <li>Ratio</li>
+</ul>
+
+<p><a href="Content_Part1_2.md"><strong>5</strong></a>
+Briefly discuss the difference between qualitative and quantitative data and their respective sub-types.</p>
+
+<p><a href="Content_Part2_0.md"><strong>6</strong></a>
+Negative spatial autocorrelation indicates clustering. [T/F]</p>
+
+<p><a href="Content_Part2_1.md"><strong>7</strong></a>
+The <strong>__</strong> data model represents space as a continuous grid of cells and each cell can contain only one attribute.</p>
+
+<p><a href="Content_Part2_2.md"><strong>8</strong></a>
+The <strong>__</strong> data model represents features in space as discrete two-dimensional polygons, one-dimensional lines , and/or “zero-dimensional” points.  Attribute(s) are stored separately in a table, and each row can have numerous attributes.</p>
+
+<p><a href="Content_Part2_2.md"><strong>9</strong></a>
+Polygons can be single part or multipart [T/F].</p>
+
+<p><a href="Content_Part2_3.md"><strong>10</strong></a>
+Both types of phenomena can be represented using either the data model.  But generally speaking, continuous fields phenomena are better represented by the <strong>__</strong> model and discrete objects are better represented by the <strong>__</strong> data model.</p>
+
+<p><a href="Content_Part2_3.md"><strong>11</strong></a>
+Higher resolution rasters have smaller cells which means they take less memory to store. [T/F]</p>
+
+<p><a href="Content_Part2_3.md"><strong>12</strong></a>
+The <strong>__</strong> pertains to how we assign data values to grid cells that cover more than one value.</p>
+
+<p><a href="Content_Part2_3.md"><strong>13</strong></a>
+Resolution is a property of the [data/map/both], scale is a property of the [data/map/both].</p>
+
+<h1 id="lab-application-questions">Lab Application Questions</h1>
+
+<p>Unless otherwise specified, numeric answers have a margin of error of 0.01, so give all responses to at least the hundredths place.</p>
+
+<p><a href="Application_Part2.md#monitoring-vegetation-with-satelites"><strong>14</strong></a>
+What is NDVI and what is it used for?  Describe the patterns you see in NDVI across the metro Vancouver area.</p>
+
+<p><a href="Application_Part3.md#a-note-on-linear-regression"><strong>15</strong></a>
+Looking at the <strong>VanDA_2016</strong> layer, for every $100 increase in income at the DA level, how much does rental price increase?</p>
+
+<p><a href="Application_Part3.md#a-note-on-linear-regression"><strong>16</strong></a>
+Looking at the <strong>VanDA_2016</strong> layer, What is the R2 score for this model?</p>
+
+<p><a href="Application_Part3.md#comparing-cts-to-das"><strong>17</strong></a>
+Which Census Unit displays a more direct relationship between Income and Housing?</p>
+<ul>
+  <li>DA</li>
+  <li>CT</li>
+  <li>About the same</li>
+</ul>
+
+<p><a href="Application_Part3.md#comparing-cts-to-das"><strong>18</strong></a>
+What are the differences you notice between the CTs and DAs in terms of area and population?</p>
+
+<p><a href="Application_Part3.md#use-the-natural-breaks-classification"><strong>19</strong></a>
+What value does the Natural Breaks method determine should denotes the lower bound of the “Green Vegetation Class?”</p>
+
+<p><a href="Application_Part4.md#data-normalization"><strong>20</strong></a>
+What does data normalization do?</p>
+
+<p><a href="Application_Part4.md#inspect-and-compare-the-outputs"><strong>21</strong></a>
+Describe the relationship between the <strong>Mean</strong> NDVI value per DA and and the <strong>Green Veg Fraction</strong> per DA.  Are they telling us the same thing?  How Strongly are they related?</p>
+
+<p><a href="Application_Part4.md#inspect-and-compare-the-outputs"><strong>22</strong></a>
+What is the R2 score for <strong>Green Veg Fraction</strong> vs. <strong>Income</strong>?</p>
+
+<p><a href="Application_Part4.md#inspect-and-compare-the-outputs"><strong>23</strong></a>
+What is the R2 score for <strong>Mean</strong> vs. <strong>Income</strong>?</p>
+
+<p><a href="Application_Part4.md#inspect-and-compare-the-outputs"><strong>24</strong></a>
+Are either of these variables strongly linked to income? Explain why or why not?  Are there any improvement you think we could make to this analysis?</p>
+
+<p><a href="Application_Part6.md#fa1"><strong>25</strong></a>
+Export your Layout as a .pdf and upload it to Canvas.</p>
+
+:ET

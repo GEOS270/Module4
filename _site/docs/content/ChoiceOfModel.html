@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Reveal.js template</title>
+  <!-- credit https://bl.ocks.org/elipousson/f64814b1ee4aab5d83775bfbf556d35a -->
+
+  <meta name="description" content="Simple Reveal.js slidedeck template. Source files loaded from jsDelivr.">
+  <meta name="author" content="jitesh@spinspire.com">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css">
+  <!-- see https://cdnjs.com/libraries/reveal.js/3.6.0 for what's available -->
+  <!-- examples: simple, beige, black, blood, league, moon, night, serif, sky, solarized, white ... -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/sky.css" id="theme">
+  <!-- see: https://cdnjs.com/libraries/highlight.js/ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/ir-black.min.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    // Load print, pdf stylesheets from jsDelivr
+    var srcUrlPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = srcUrlPrefix + (window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css');
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  <style>
+    body {
+      /* make it totally black */
+      background-color: black;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .col {
+      flex: 1
+    }
+
+
+.left {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:40%;
+  z-index:-10;
+}
+
+.right {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: right;
+  z-index:-10;
+  width:60%;
+}
+
+
+ul {
+  padding-left: 5px;
+}
+
+  </style>
+</head>
+
+
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+
+
+
+       <section>
+        <h2>Resolution &. Scale</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <p><b>1)</b>How does the scale of our analysis dictate our desired resolution?</p>
+          <p><b>2)</b>How can data resolution limit the scale of our analysis?</p>
+           </div>
+      </section>
+
+
+       <section>
+        <h2>Resolution & Scale</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <p>We want to work with high resolution data because: &#8593; resolution = &#8595; generalization = &#8595; uncertainty</p>
+          <ul>
+            <li>In reality, this isn't always practical or possible.</li>
+            <li>We must try to strike a balance.</li> 
+          </ul>
+           </div>
+      </section>
+
+       <section>
+        <h2>Things to consider</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+            <p>What is the "lowest" acceptable resolution?</p>
+
+          <ul>
+            <li>Smaller scale analysis won't need the same level of detail.</li> 
+            <li>Looking at national immigration patterns, maybe you only need provincial level data?</li>
+
+          </ul>
+           </div>
+      </section>
+
+
+       <section>
+        <h2>Things to consider</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+            <p>Change the scope of our analysis?</p>
+            <li>If you need a high resolution analysis, work at a larger scale and focus on a small area.</li>
+            <li>If you need to analyze a large area, work at small scales and accept the uncertainty that comes with coarser resolution.</li>
+          </ul>
+           </div>
+      </section>
+
+
+       <section style="text-align: center;">
+        <h2>Comparing Data Models</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <h3>Raster</h3>
+          <p>Usually <b>continuous fields</b><br>
+          <ul>
+            <li>Grid of cells (pixels) with continuous coverage</li>
+            <li>Each cell has <b>one</b> value per band (layer)</li>
+            <li>One raster image can have <b>many</b> bands</li>
+          </ul>
+            </p>
+           </div>
+
+          <div class="col" style="text-align: left;">
+          <h3>Vector</h3>
+          <p>Usually <b>discrete objects</b></p>
+          <ul>
+           <li>Points, Lines, and/or Polygons</li>
+           <li>Each object can have <b>many</b> attributes</li>
+           <li>Objects may overlap, have gaps, or be continuous</li>
+          </ul>
+          </div>
+         </section>
+
+
+       <section style="text-align: center;">
+        <h2>Advantages</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <h3>Raster</h3>
+          <p>  
+            <ul>
+            <li>Good for continuous variables: in space <b>and</b> time</li>
+            <li>Simple data structure makes overlay is easy and efficient</li>
+          </ul>
+            </p>
+           </div>
+
+          <div class="col" style="text-align: left;">
+          <h3>Vector</h3>
+          <p>
+          <ul>
+           <li>Compact data structure</li>
+           <li>Good for discrete objects</li>
+           <li>Easy to query and select by attributes</li>
+          </ul>
+          </div>
+         </section>
+
+
+       <section style="text-align: center;">
+        <h2>DisAdvantages</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+          <h3>Raster</h3>
+          <p>
+          <ul>
+            <li>Mixed pixel problem</li>
+            <li>One attribute per cell</li>
+            <li>Large data volumes</li>
+          </ul>
+            </p>
+           </div>
+
+          <div class="col" style="text-align: left;">
+          <h3>Vector</h3>
+          <p>
+          <ul>
+           <li>Complex data structure</li>
+           <li>Overlay can be computationally expensive</li>
+           <li>No variability within polygons</li>
+          </ul>
+          </div>
+         </section>
+
+
+
+       <section style="text-align: left;">
+        <h2>Which data model is “Best”?</h2>
+        <div class="container">
+          <div class="col" style="text-align: left;">
+
+          <p>Neither data model is suitable for all types of data or analysis.
+          <ul>
+            <li>You will frequently use both the raster and vector models.</li>
+            <li>It is possible to convert back and forth between models.</li>
+            <ul>
+            <li>This can introduce error, only do when necessary.</li>
+            </ul>
+          </ul>
+            </p>
+           </div>
+         </div>
+         </section>
+
+    </div><!-- .slides -->
+
+  </div><!-- .reveal -->
+
+  <!-- not needed since 3.8.0 -->
+  <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/head.min.js"><script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js"></script>
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      overview: false,
+      loop: false,
+      margin: 0.04,
+      width: 1100,
+
+      transition: 'none', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins, loaded from jsDelivr
+      dependencies: [
+        { src: srcUrlPrefix + 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+        { src: srcUrlPrefix + 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: srcUrlPrefix + 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: srcUrlPrefix + 'plugin/highlight/highlight.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+        { src: srcUrlPrefix + 'plugin/zoom-js/zoom.js', async: true },
+        { src: srcUrlPrefix + 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>

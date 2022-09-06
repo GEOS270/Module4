@@ -1,0 +1,21 @@
+I"_<h1 id="types-of-phenomena">Types of Phenomena</h1>
+
+<p>A key determinant of which data model is best for a given application is the type of phenomena we’re trying to represent.  There are two key types of phenomena: <strong>Discrete Objects</strong> and <strong>Continuous Fields</strong></p>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/Phenomena.html" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/Phenomena.html" target="_blank">View Slides in New Tab</a></p>
+
+<p>Download the slides as a .pdf <a href="https://raw.githubusercontent.com/June-Skeeter/Module2_GEOS270/main/docs/content/Phenomena.pdf">here</a></p>
+
+:ET
