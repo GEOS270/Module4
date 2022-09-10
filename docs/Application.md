@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Lab Application
+title: Lab Assignment
 has_children: True
-nav_order: 3
+nav_order: 2
 ---
 
 # Overview

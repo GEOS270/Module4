@@ -1,46 +1,91 @@
 ---
 layout: default
-title: Assessment
-nav_order: 4
+title: Module Quiz
+nav_order: 3
 ---
 
-# Assessment
+# Module 4 Quiz
 
-You can use the submit your answers to the Assessment via the Module 2 Quiz on Canvas.  Questions are listed here with hyperlinks to the relevant section of the module if you need help finding answers.
+You can submit your answers to these questions via the Module 4 Quiz on Canvas.  Questions are listed here with hyperlinks to the relevant section of the lab if you need help finding answers.
+
+## Rubric
+
+Written answers and maps will be evaluated using the rubric below and your TA will provide brief comments where applicable.
+
+* If you need more feedback you can follow up with your TA via email or in lab.
+* Categories are just general guides
+    * Your TA may assign scores between these levels
 
 
-## Written Answers & File Uploads
+|      Category      |                   Written Answers                |                 Map/Chart Submissions                             |Score|
+|--------------------|--------------------------------------------------|-------------------------------------------------------------------|-----|
+|Missing             |N/A                                               |N/A                                                                |0%   |
+|Insufficient        |Missing major key points or serious logical flaws |Serious errors in analysis, missing data, or major stylistic issues|25%  |
+|Below Expectations  |Missing a few key points or minor logical flaws   |Minor errors in analysis or multiple stylistic issues              |50%  |
+|Meets Expectations  |Hits key points and mostly well constructed       |Error free analysis, minor stylistic issue                         |75%  |
+|Exceeds Expectations|Clearly thought out, concise, and astute          |Error free analysis and clean, aesthetically pleasing map          |100% |
 
-Written answers should be brief but they should adequately answer the question.  Bullet point format is sufficient unless otherwise specified.  All written answers & maps will be evaluated following this general rubrics below.
+### Written Answers 
 
-* Scores & categories are general guides, you TA may assign scores between these levels
-* Your TA will provide brief comments where applicable, if you need more feedback you can follow up with your TA.
+Written answers can be brief but they should adequately answer the question.
 
-**Written Answer Rubric**
+* Bullet point format is okay **unless otherwise specified**
 
-|Score|      Category      |                             Details                              |
-|-----|--------------------|------------------------------------------------------------------|
-|0%   |Missing             |N/A                                                               |
-|40%  |Insufficient        |Minimal effort, missing major key points, or serious logical flaws|
-|60%  |Below Expectations  |Missing a few key points or minor logical flaws                   |
-|80%  |Met Expectations    |Hits key points and mostly well constructed                       |
-|100% |Exceeds Expectations|Clearly thought out, concise, and astute                          |
+### File Submissions
 
-**Map Rubric**
+Map/charts/figures will be evaluated for completeness and aesthetics.
 
-|Score|      Category      |                             Details                               |
-|-----|--------------------|-------------------------------------------------------------------|
-|0%   |Missing             |N/A                                                                |
-|40%  |Insufficient        |Serious errors in analysis, missing data, or major stylistic issues|
-|60%  |Below Expectations  |Minor errors in analysis or multiple stylistic issues              |
-|80%  |Met Expectations    |Error free analysis, minor stylistic issue                         |
-|100% |Exceeds Expectations|Error free analysis and clean, aesthetically pleasing map          |
-
+* Files should be saved as using the file type specified (.pdf, .png, etc.)
+    * Make sure to double check the file before uploading!
 
 ---
 
-# Lecture Content Questions 
+# Quiz Questions
 
+Unless otherwise specified, numeric answers have a margin of error of 0.01, so give all responses to at least the hundredths place.
+
+[**1**](Application_Part2.md#monitoring-vegetation-with-satelites)
+What is NDVI and what is it used for and how is it calculated? What do high and low NDVI values represent respectively? What patterns do you see in the NDVI data for the metro Vancouver area?
+
+
+[**2**](Application_Part3.md#a-note-on-linear-regression)
+Looking at the **VanDA_2016** layer, for every $100 increase in income at the DA level, how much does rental price increase?
+
+[**3**](Application_Part3.md#a-note-on-linear-regression)
+Looking at the **VanDA_2016** layer, what is the R2 score for this model?
+
+[**4**](Application_Part3.md#comparing-cts-to-das)
+What is the median population of a Census Tract (VanCMA_CT_2016) in Metro Vancouver?
+
+[**5**](Application_Part3.md#comparing-cts-to-das)
+Which Census Unit displays a more direct relationship between Income and Housing?  What evidence supports this conclusion? 
+
+[**6**](Application_Part3.md#use-the-natural-breaks-classification)
+What value does the Natural Breaks method determine should denotes the lower bound of the "Green Vegetation" class? **Hint**:  Look at the Start/End values when applying the natural breaks classification.
+
+[**7**](Application_Part3.md#change-the-base-map)
+Looking at the satellite image, how well do you think the natural breaks classification method did at distinguishing areas of green vegetation from residential areas and urban/water areas?
+
+[**20**](Application_Part4.md#data-normalization)
+What does data normalization do?
+
+[**21**](Application_Part4.md#inspect-and-compare-the-outputs)
+Describe the relationship between the **Mean** NDVI value per DA and and the **Green Veg Fraction** per DA.  Are they telling us the same thing?  How Strongly are they related?
+
+[**22**](Application_Part4.md#inspect-and-compare-the-outputs)
+What is the R2 score for **Green Veg Fraction** vs. **Income**?
+
+[**23**](Application_Part4.md#inspect-and-compare-the-outputs)
+What is the R2 score for **Mean** vs. **Income**?
+
+[**24**](Application_Part4.md#inspect-and-compare-the-outputs)
+Are either of these variables strongly linked to income? Explain why or why not?  Are there any improvement you think we could make to this analysis?
+
+[**25**](Application_Part6.md#fa1)
+Export your Layout as a .pdf and upload it to Canvas.
+
+
+<!-- 
 [**1**](Content_Part1_1.md)
 ______ have well defined boundaries.  They are countable, meaning there is only a finite number of them.
 
@@ -84,48 +129,4 @@ The ______ pertains to how we assign data values to grid cells that cover more t
 
 [**13**](Content_Part2_3.md)
 Resolution is a property of the [data/map/both], scale is a property of the [data/map/both].
-
-# Lab Application Questions 
-
-Unless otherwise specified, numeric answers have a margin of error of 0.01, so give all responses to at least the hundredths place.
-
-[**14**](Application_Part2.md#monitoring-vegetation-with-satelites)
-What is NDVI and what is it used for?  Describe the patterns you see in NDVI across the metro Vancouver area.
-
-
-[**15**](Application_Part3.md#a-note-on-linear-regression)
-Looking at the **VanDA_2016** layer, for every $100 increase in income at the DA level, how much does rental price increase?
-
-[**16**](Application_Part3.md#a-note-on-linear-regression)
-Looking at the **VanDA_2016** layer, What is the R2 score for this model?
-
-[**17**](Application_Part3.md#comparing-cts-to-das)
-Which Census Unit displays a more direct relationship between Income and Housing?
-- DA
-- CT
-- About the same
-
-[**18**](Application_Part3.md#comparing-cts-to-das)
-What are the differences you notice between the CTs and DAs in terms of area and population?
-
-[**19**](Application_Part3.md#use-the-natural-breaks-classification)
-What value does the Natural Breaks method determine should denotes the lower bound of the "Green Vegetation Class?"
-
-[**20**](Application_Part4.md#data-normalization)
-What does data normalization do?
-
-[**21**](Application_Part4.md#inspect-and-compare-the-outputs)
-Describe the relationship between the **Mean** NDVI value per DA and and the **Green Veg Fraction** per DA.  Are they telling us the same thing?  How Strongly are they related?
-
-[**22**](Application_Part4.md#inspect-and-compare-the-outputs)
-What is the R2 score for **Green Veg Fraction** vs. **Income**?
-
-[**23**](Application_Part4.md#inspect-and-compare-the-outputs)
-What is the R2 score for **Mean** vs. **Income**?
-
-[**24**](Application_Part4.md#inspect-and-compare-the-outputs)
-Are either of these variables strongly linked to income? Explain why or why not?  Are there any improvement you think we could make to this analysis?
-
-[**25**](Application_Part6.md#fa1)
-Export your Layout as a .pdf and upload it to Canvas.
-
+ -->

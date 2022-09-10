@@ -1,0 +1,203 @@
+I"�&<details open="">
+  <summary class="text-delta">
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#visualizing-vector-data--plotting-relationships" id="markdown-toc-visualizing-vector-data--plotting-relationships">Visualizing Vector Data &amp; Plotting Relationships</a>    <ol>
+      <li><a href="#a-note-on-linear-regression" id="markdown-toc-a-note-on-linear-regression">A Note on Linear Regression.</a></li>
+      <li><a href="#comparing-cts-to-das" id="markdown-toc-comparing-cts-to-das">Comparing CTs to DAs</a></li>
+    </ol>
+  </li>
+  <li><a href="#visualize-and-classify-the-ndvi-data" id="markdown-toc-visualize-and-classify-the-ndvi-data">Visualize and Classify the NDVI Data</a>    <ol>
+      <li><a href="#use-the-natural-breaks-classification" id="markdown-toc-use-the-natural-breaks-classification">Use The Natural Breaks Classification</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+<hr />
+
+<h1 id="visualizing-vector-data--plotting-relationships">Visualizing Vector Data &amp; Plotting Relationships</h1>
+<p>These Census data are in <strong>Vector</strong> format.  A key advantage of Vector Data is that we can have multiple attributes associated with each entity (point/line/polygon).  Here, we are interested in three variables: Population (total residents), Housing (monthly rent), and Income (annual total).</p>
+
+<p><strong class="label label-red">1</strong> Symbolize your census data by population.</p>
+<ul>
+  <li>Set the Field to Population</li>
+  <li>Change the symbology for Van_DA_2016 to Graduated Colors</li>
+  <li>Explore how the different classification schemes influence the way the classified layer looks on the map</li>
+</ul>
+
+<p><strong class="label label-red">2</strong> Make a Histogram of Population.</p>
+<ul>
+  <li>Set the number to population</li>
+  <li>Make sure the mean, median, and standard deviations are all shown on the Histogram.</li>
+</ul>
+
+<p><strong class="label label-red">3</strong> Create a chart income vs. housing.</p>
+<ul>
+  <li>Right click Van_DA_2016 and click Create Chart &gt; Scatter Plot.</li>
+  <li>In the chart properties tab set:
+    <ul>
+      <li><strong>X-axis</strong>: Income</li>
+      <li><strong>Y-axis</strong>: Housing</li>
+    </ul>
+  </li>
+  <li>Make sure “Show linear trend” is checked to display a regression line on your chart.</li>
+</ul>
+
+<p><strong class="label label-red">4</strong> Note the zero values on the X &amp; Y Axes.  Stats Canada “suppresses” data when they don’t get enough responses to a census question.  No house in Vancouver is worth $0.  We need to exclude the zeros so they don’t skew our results</p>
+<ul>
+  <li>In the Map tab, click <strong>Select by Attribute</strong>, select for “Housing” greater than 0 <strong>And</strong> “Income” greater than 0.
+    <ul>
+      <li>Select by Attribute allows us to select rows/objects with a certain attribute.</li>
+      <li>It relies on something called a Structured Query Language (SQL).</li>
+      <li>We are selecting all rows “Where” our conditions are met.
+        <ul>
+          <li>You can use the <strong>And</strong>/<strong>Or</strong> commands to combine querries.</li>
+          <li><strong>And</strong>: Selects whre <strong>All</strong> statements are true</li>
+          <li><strong>Or</strong>: Selects whre <strong>Any</strong> statements are true</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/videos/Symbolize.mp4" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/videos/Symbolize.mp4" target="_blank">View Image in New Tab</a></p>
+
+<h2 id="a-note-on-linear-regression">A Note on Linear Regression.</h2>
+<p>A regression line is also know as a “line of best fit”.  <a href="https://en.wikipedia.org/wiki/Linear_regression#Introduction">Linear regression</a> assumes the relationship between an X variable (eg. Income) and a Y variable (eg. Housing) follows a linear relationship (eg. Y=MX + B) where M is the slope and B is the intercept.</p>
+<ul>
+  <li>Any deviations from this linear relationship are “errors”.  That is, all the other variability that cannot be explained by the model.  Rental cost is impacted by many factors (eg. scarcity) that aren’t as easy to capture with census data alone.</li>
+  <li>In the example below for Van_DA_2016 (before excluding zeros), M = 0.0123 and b = 660.1, which means at $0 income, rent is $660.1.  And for every $100 increase in income, rent goes up $1.23.</li>
+</ul>
+
+<p><img src="content/images/Statistics.png" alt="hi" class="inline" /></p>
+
+<p>The <b>R<sup>2</sup></b> score, is known as the <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>.  It is a measure of how well a model fits the data.  It ranges from 0 to 1, with 0 representing “no fit” and 1 representing a “perfect fit”.</p>
+
+<ul>
+  <li>This table shows how we assess the strength of a relationships indicated by the R<sup>2</sup> statistics.  In the example above, there is no strong relationship.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>R<sup>2</sup></th>
+      <th>Relationship</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt;0.3</td>
+      <td>Very Weak</td>
+    </tr>
+    <tr>
+      <td>0.3 - 0.5</td>
+      <td>Weak</td>
+    </tr>
+    <tr>
+      <td>0.5 - 0.7</td>
+      <td>Moderate</td>
+    </tr>
+    <tr>
+      <td>&gt;0.7</td>
+      <td>Strong</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="comparing-cts-to-das">Comparing CTs to DAs</h2>
+
+<p>Repeat the steps above for the VanCMA_CT_2016 layer.  <strong>Don’t forget</strong> to exclude the zeros on your scatter plot. Note there are fewer zeros overall. Think about why that might be.  <strong>Hint</strong> look at the population of CTs compared to DAs</p>
+
+<h1 id="visualize-and-classify-the-ndvi-data">Visualize and Classify the NDVI Data</h1>
+<p>To get a feel for the distribution of NDVI values in the dataset, we’re going to plot them in a histogram to aid our visual inspection of the NDVI data.</p>
+
+<p><strong class="label label-blue">1</strong> Create a chart showing the count of cells by NDVI values.</p>
+<ul>
+  <li>Right click the projected NDVI layer (NDVI layer = Van_Greenest_ProjectRaster) and click Create Chart &gt; Histogram</li>
+  <li>Under Variable, set Band_1 as Number.  Note what shows up on the chart.</li>
+  <li>A histogram represents a distribution by grouping the data into bins (ranges), and plotting the count of values (eg. raster cells) for by bin.
+    <ul>
+      <li>Change the bin number to see how changing the size of the bins, impacts how you perceive the data.  Try 10, then try 50.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="content/images/Bins.png" alt="hi" class="inline" /></p>
+
+<p><strong class="label label-blue">2</strong> Change the base map to help inspect the NDVI data.</p>
+<ul>
+  <li>On the Map tab click “Basemap” and choose Imagery</li>
+  <li>Toggle the NDVI Layer on and off to see how the NDVI values correspond to green vegetation on the visible imagery base map layer.</li>
+  <li>Look at the histogram and compare the NDVI layer with the satellite image base map.  We can make some inferences about the data.
+    <ul>
+      <li>The NDVI values have a bimodal distribution (two peaks) according to the histogram.</li>
+      <li>The peaks correspond to areas dominated by water and dense urban areas (low values) and dense vegetation (high values).</li>
+      <li>Values in-between the peaks represent less dense urban areas, moderate greenery.</li>
+    </ul>
+  </li>
+</ul>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/videos/Histogram.mp4" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/videos/Histogram.mp4" target="_blank">View Image in New Tab</a></p>
+
+<h2 id="use-the-natural-breaks-classification">Use The Natural Breaks Classification</h2>
+
+<p><strong class="label label-blue">3</strong> Search for the Reclassify tool in the geoprocessing pane.  Use the projected NDVI layer as the input.  Name your layer <strong>Classification</strong> (or <strong>reclass</strong> if you recieve an error about name length being &gt; 13 characters).  Specific names aren’t so important, but the point is to give things a name that makes sense to you.</p>
+
+<p><strong class="label label-blue">4</strong> Click classify to set the classification scheme.  Set the method to <strong>Natural Breaks</strong> and the number of classes to 3.</p>
+<ul>
+  <li>We talked about classification in <a href="https://geos270.github.io/Module3/docs/Content_Part2.html">Module 3</a>.
+    <ul>
+      <li>It is designed to automatically find an “optimal” fit to a dataset.</li>
+    </ul>
+  </li>
+  <li>We can use it to group the NDVI values into three classes:</li>
+  <li>1: Water/Urban (lowest values)</li>
+  <li>2: Medium Density Residential (middle values)</li>
+  <li>3: Green Vegetation (highest values)</li>
+</ul>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/videos/Classify.mp4" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/videos/Classify.mp4" target="_blank">View Image in New Tab</a></p>
+
+<!-- 
+### **Q4**
+Which value denotes the lower bound of the "Green Vegetation Class?"
+ -->
+:ET

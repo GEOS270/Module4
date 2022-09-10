@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Satellite Data
-parent: Lab Application
+parent: Lab Assignment
 nav_order: 2
 math: mathjax2
 ---
@@ -75,6 +75,7 @@ var Cent = ee.Geometry.Point([-123,49.25]);
 Map.centerObject(Cent, 10);
 
 // Import the Landsat 8 TOA image collection.
+// Filter out images with cloud covdf > 10%
 var Collection = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA').filter(ee.Filter.lt('CLOUD_COVER_LAND', 10));
 
 // Get the number of images.
@@ -151,8 +152,8 @@ Below are the steps to download the NDVI data.  You can reference the videos bel
 
 **2**{: .label .label-green } Import the Boundary file into the code.
 * Click on the boundary file you uploaded, and select import.
-* It will import in the top of the code window.
-  * By default it names it "table", change the name to Boundary.
+* It will import in the **top** of the code window.
+  * By default it names it "table", change the name to **Boundary**.
 
 **3**{: .label .label-green } Run the download.
 * Scroll to the bottom of the code.
@@ -188,7 +189,7 @@ Go to your [Google Drive](https://drive.google.com/drive/my-drive) and find the 
 
 # Project the Raster Layer
 
-By default, data from GEE is not projected!  It comes in the WGS 1984 Geographic Coordinate System (Lat/Lon referencing the WGS 1984 Datum).  We need to get it into NAD 1983 UTM Zone 10N so it matches the rest of our data!  Feature Datasets only work for **Vector** data.  The NDVI data is in the **Raster** data format. So we have to reproject it manually.  Raster data requires a slightly different tool to do the re-projection than the vector data we worked with in Module 1.  The steps and video below goes shows you how to do that.
+By default, data from GEE is not projected!  It comes in the WGS 1984 Geographic Coordinate System (Lat/Lon referencing the WGS 1984 Datum).  We need to get it into NAD 1983 UTM Zone 10N so it matches the rest of our data!  Feature Datasets only work for **Vector** data.  The NDVI data is in the **Raster** data format. So we have to reproject it manually.  Raster data requires a slightly different tool to do the re-projection than the vector data we worked with in Modules 1-3.  The steps and video below goes shows you how to do that.
 
 **1**{: .label .label-blue } In the Geoprocessing pane, search for the Project Raster tool.
 

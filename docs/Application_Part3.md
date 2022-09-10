@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Data Exploration
-parent: Lab Application
+parent: Lab Assignment
 nav_order: 3
 ---
 
@@ -16,15 +16,19 @@ nav_order: 3
 </details>
 ---
 
-# Symbolize Census Data & Plot Relationships
-These data layers have three variables: Population (total residents), Housing (monthly rent), and Income (annual total).  The Canadian Census collects many different variables.  We'll discuss the census more in depth during lecture in Module 3.  For now, lets look at how we can display our data and make some simple graphs.
+# Visualizing Vector Data & Plotting Relationships
+These Census data are in **Vector** format.  A key advantage of Vector Data is that we can have multiple attributes associated with each entity (point/line/polygon).  Here, we are interested in three variables: Population (total residents), Housing (monthly rent), and Income (annual total).  
 
 **1**{: .label .label-red } Symbolize your census data by population.
-* Change the symbology for Van_DA_2016 to Graduated Colors.
-* Set the Field to Population.
-* Leave everything else as is for now.  We'll discuss data classification methods in more detail later in term.
+* Set the Field to Population
+* Change the symbology for Van_DA_2016 to Graduated Colors
+* Explore how the different classification schemes influence the way the classified layer looks on the map
 
-**2**{: .label .label-red } Create a chart income vs. housing.
+**2**{: .label .label-red } Make a Histogram of Population.
+* Set the number to population
+* Make sure the mean, median, and standard deviations are all shown on the Histogram.
+
+**3**{: .label .label-red } Create a chart income vs. housing.
 * Right click Van_DA_2016 and click Create Chart > Scatter Plot.
 * In the chart properties tab set:
   * **X-axis**: Income
@@ -32,28 +36,16 @@ These data layers have three variables: Population (total residents), Housing (m
 * Make sure "Show linear trend" is checked to display a regression line on your chart.
 
 
-**3**{: .label .label-red } Note the zero values on the X & Y Axes.  Stats Canada "suppresses" data when they don't get enough responses to a census question.  No house in Vancouver is worth $0.  We need to exclude the zeros so they don't skew our results
+**4**{: .label .label-red } Note the zero values on the X & Y Axes.  Stats Canada "suppresses" data when they don't get enough responses to a census question.  No house in Vancouver is worth $0.  We need to exclude the zeros so they don't skew our results
 * In the Map tab, click **Select by Attribute**, select for "Housing" greater than 0 **And** "Income" greater than 0.
   * Select by Attribute allows us to select rows/objects with a certain attribute.
   * It relies on something called a Structured Query Language (SQL).
   * We are selecting all rows "Where" our conditions are met.
-* Filter your selection from the chart.  Note how the R2 value for the line of best fit changes!
+    * You can use the **And**/**Or** commands to combine querries.
+    * **And**: Selects whre **All** statements are true
+    * **Or**: Selects whre **Any** statements are true
 
-
-<div style="overflow: hidden;
-  padding-top: 56.25%;
-  position: relative">
-  <iframe src="content/videos/Symbolize.mp4" title="Processes" scrolling="no" frameborder="0"
-    style="border: 0;
-   height: 100%;
-   left: 0;
-   position: absolute;
-   top: 0;
-   width: 100%;">
-   <p>Your browser does not support iframes.</p>
- </iframe>
-</div>
-<a href="content/videos/Symbolize.mp4" target="_blank">View Image in New Tab</a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cWr6B9Pp4Dc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## A Note on Linear Regression.
 A regression line is also know as a "line of best fit".  [Linear regression](https://en.wikipedia.org/wiki/Linear_regression#Introduction) assumes the relationship between an X variable (eg. Income) and a Y variable (eg. Housing) follows a linear relationship (eg. Y=MX + B) where M is the slope and B is the intercept. 
@@ -76,76 +68,44 @@ The <b>R<sup>2</sup></b> score, is known as the [coefficient of determination](h
 
 ## Comparing CTs to DAs
 
-We'll cover the [census units](https://en.wikipedia.org/wiki/Census_geographic_units_of_Canada) more in depth in Module 3.  For now, just know Census Dissemination Areas (DAs) are the smallest census division used by the Canadian Census.  They cover the whole country and are generally grouped by municipality (eg. Vancouver) in to Census Subdivisions.  Census Tracts (CTs) are larger units that are used to divide Census Metropolitan Areas (urban areas with populations > 100,000).
+Repeat the steps above for the VanCMA_CT_2016 layer.  **Don't forget** to exclude the zeros on your scatter plot. Note there are fewer zeros overall. Think about why that might be.  **Hint** look at the population of CTs compared to DAs
 
+# Visualizing and Classifying Raster Data
+These NDVI data are in **Raster** format. An important caveat of raster data layers is they can only have **one** value per cell.  However, they are useful because they allow us to represent continuous phenomena (i.e. vegetation health) as a simple image.
 
-**4**{: .label .label-red } Follow the same steps as above to symbolize population and plot Income vs. Housing for the VanCMA_CT_2016 layer.  **Don't forget to exclude the zeros**.  Note there are fewer zeros overall.  Think about why that might be.
-
-**5**{: .label .label-red } From here on out, we'll only be working with the VanDA_2016 layer.  You can remove the VanCT_2016 layer from your table of contents so its less cluttered and you don't get confused.
-
-<!-- ### **WA2**
-What are the differences you notice between the CTs and DAs in terms of size and population?
-
-### **QA1**
-For every $100 increase in income at the CT level, how much does rental price increase?
-
-### **QA2**
-What is the r2 score for this model?
-
-### **QA3**
-Which Census Unit displays a more direct relationship between income and housing?
-- DA
-- CT
-- About the same -->
-
-# Visualize and Classify the NDVI Data
+## Create a Histogram
 To get a feel for the distribution of NDVI values in the dataset, we're going to plot them in a histogram to aid our visual inspection of the NDVI data.
 
 **1**{: .label .label-blue } Create a chart showing the count of cells by NDVI values.
-* Right click the projected NDVI layer (NDVI layer = Van_Greenest_ProjectRaster) and click Create Chart > Histogram
-* Under Variable, set Band_1 as Number.  Note what shows up on the chart.
 * A histogram represents a distribution by grouping the data into bins (ranges), and plotting the count of values (eg. raster cells) for by bin.
   * Change the bin number to see how changing the size of the bins, impacts how you perceive the data.  Try 10, then try 50.
 
-<img src="content/images/Bins.png" alt="hi" class="inline"/>
-
-
-**2**{: .label .label-blue } Change the base map to help inspect the NDVI data.
-* On the Map tab click "Basemap" and choose Imagery
-* Toggle the NDVI Layer on and off to see how the NDVI values correspond to green vegetation on the visible imagery base map layer.
-* Look at the histogram and compare the NDVI layer with the satellite image base map.  We can make some inferences about the data.  The NDVI values have a bimodal distribution (two peaks) according to the histogram.  The peaks correspond to areas dominated by water and dense urban areas (low values) and dense vegetation (high values).  Values in-between the peaks represent less dense urban areas, moderate greenery. 
-
-
-<div style="overflow: hidden;
-  padding-top: 56.25%;
-  position: relative">
-  <iframe src="content/videos/Histogram.mp4" title="Processes" scrolling="no" frameborder="0"
-    style="border: 0;
-   height: 100%;
-   left: 0;
-   position: absolute;
-   top: 0;
-   width: 100%;">
-   <p>Your browser does not support iframes.</p>
- </iframe>
-</div>
-<a href="content/videos/Histogram.mp4" target="_blank">View Image in New Tab</a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9bjZrh6tQFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Use The Natural Breaks Classification
 
-
-**3**{: .label .label-blue } Search for the Reclassify tool in the geoprocessing pane.  Use the projected NDVI layer as the input.  Name your layer **Classification** (or **reclass** if you recieve an error about name length being > 13 characters).  Specific names aren't so important, but the point is to give things a name that makes sense to you.
+**2**{: .label .label-blue } Search for the Reclassify tool in the geoprocessing pane.  Use the projected NDVI layer as the input.  
   
+* Click classify to set the classification scheme.  Set the method to **Natural Breaks** and the number of classes to 3.
+  * We talked about the Natural Breaks Classification in [Module 3](https://geos270.github.io/Module3/docs/Content_Part2.html).
+  * It is designed to automatically find an "optimal" fit to a dataset. 
+* We can use it to group the NDVI values into three classes:
+  * 1: Water/Urban (lowest values)
+  * 2: Medium Density Residential (middle values)
+  * 3: Green Vegetation (highest values)
 
-**4**{: .label .label-blue } Click classify to set the classification scheme.  Set the method to **Natural Breaks**.  This is a method designed to automatically find an "optimal" fit to a dataset.  We'll talk more about classification in Module 3.
-* We want to classify (group) the NDVI into three classes (Green Vegetation, Medium Density Residential, Water/Urban), so set the number of classes to 3.
+# Change the Base Map 
 
+To help inspect the NDVI classification, we can change the base map and look at a satellite image layer.
+
+* On the Map tab click "Basemap" and choose Imagery
+* Toggle the NDVI Layer and classified image on and off to see how the NDVI values correspond to green vegetation on the visible imagery base map layer. 
 
 <div style="overflow: hidden;
   padding-top: 56.25%;
   position: relative">
-  <iframe src="content/videos/Classify.mp4" title="Processes" scrolling="no" frameborder="0"
+  <iframe src="content/videos/BaseMap.mp4" title="Processes" scrolling="no" frameborder="0"
     style="border: 0;
    height: 100%;
    left: 0;
@@ -155,9 +115,4 @@ To get a feel for the distribution of NDVI values in the dataset, we're going to
    <p>Your browser does not support iframes.</p>
  </iframe>
 </div>
-<a href="content/videos/Classify.mp4" target="_blank">View Image in New Tab</a>
-
-<!-- 
-### **Q4**
-Which value denotes the lower bound of the "Green Vegetation Class?"
- -->
+<a href="content/videos/BaseMap.mp4" target="_blank">View Image in New Tab</a>

@@ -2,7 +2,7 @@
 layout: default
 title: Spatial Data Models
 parent: Lecture Content
-has_children: True
+# has_children: True
 nav_order: 1
 ---
 
