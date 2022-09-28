@@ -1,0 +1,33 @@
+I"�<h1 id="overview">Overview</h1>
+
+<p>This lab gives you an introduction into how to conduct a “full” GIS workflow.</p>
+
+<h2 id="research-question">Research Question</h2>
+
+<p>What is the relationship between neighborhood green vegetation coverage and housing cost in Vancouver?</p>
+
+<h1 id="workflow">Workflow</h1>
+
+<p>How we will answer the research question:</p>
+
+<p>1) Estimate vegetation coverage with satellite data and overlay census data.</p>
+
+<p>2) Plot the relationship between vegetation coverage and income and run linear regression analysis.</p>
+
+<p>3) Visualize the results.</p>
+
+<h2 id="spatial-data-models">Spatial Data Models</h2>
+
+<p>In this lab, we are going to explore ways to work with both Vector Data and Raster Data.  We’ll cover some specifics of these spatial data models in lecture.  For now, just remember this.  We use the <strong>Raster Data Model</strong> for <em>satellite data</em> and the <strong>Vector Data Model</strong> for <em>census data</em>.</p>
+
+<!-- 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yApif5mwUlw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ -->
+
+<h3 id="acknowledgments">Acknowledgments</h3>
+
+<ul>
+  <li>This lab was written by June Skeeter using content adapted from lab assignments created by Naomi Schwartz and Sally Hermansen.</li>
+</ul>
+:ET

@@ -1,0 +1,188 @@
+I"\*<details open="">
+  <summary class="text-delta">
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#clean-up-your-workspace-selection" id="markdown-toc-clean-up-your-workspace-selection">Clean Up Your Workspace Selection</a></li>
+  <li><a href="#method-1" id="markdown-toc-method-1">Method 1</a>    <ol>
+      <li><a href="#zonal-statistics-as-table" id="markdown-toc-zonal-statistics-as-table">Zonal Statistics as Table</a></li>
+    </ol>
+  </li>
+  <li><a href="#method-2" id="markdown-toc-method-2">Method 2</a>    <ol>
+      <li><a href="#raster-to-polygon-conversion-and-intersection" id="markdown-toc-raster-to-polygon-conversion-and-intersection">Raster to Polygon Conversion and Intersection</a></li>
+      <li><a href="#calculate-the-green-vegetation-area-and-dissolve-by-ct" id="markdown-toc-calculate-the-green-vegetation-area-and-dissolve-by-ct">Calculate the Green Vegetation Area and Dissolve by CT</a></li>
+      <li><a href="#data-normalization" id="markdown-toc-data-normalization">Data Normalization</a></li>
+    </ol>
+  </li>
+  <li><a href="#inspect-and-compare-the-outputs" id="markdown-toc-inspect-and-compare-the-outputs">Inspect and Compare the Outputs</a></li>
+</ol>
+
+</details>
+<hr />
+
+<h1 class="no_toc" id="spatial-analysis">Spatial Analysis</h1>
+
+<p>A key aspect of GIS is overlaying multiple data layers to generate new information.  There are typically multiple solutions to a given problem in GIS.  Here, we are going to look at two methods for combining a raster layer and a vector layer:</p>
+
+<p>1) <strong>Zonal Statistics</strong>:  This method is faster, but can be applied in a more limited number of circumstances.</p>
+
+<p>2) <strong>Raster to Polygon Conversion</strong>: This method involves converting between data types and requires more a few steps, but it is more flexible.</p>
+
+<h1 id="clean-up-your-workspace-selection">Clean Up Your Workspace Selection</h1>
+
+<p>From here on out, we are only goin to be working with the VanCMA_CT_2016 so you can remove the Van_DA_2016 layer.</p>
+
+<h1 id="method-1">Method 1</h1>
+
+<h2 id="zonal-statistics-as-table">Zonal Statistics as Table</h2>
+
+<p>We are going to overlay the vector data on the raster data to measure the mean NDVI value for each census tract using the <strong>Zonal Statistics as Table</strong> tool.  Then we will <strong>Join</strong> the resulting output table to add the NDVI values by CT to the layer.  A <strong>join</strong> is a way to add tables to a layer based on a specific column.  You can reference the video below for guidance.</p>
+
+<p><strong class="label label-red">1</strong> Find the Zonal Statistics as Table tool in the Geoprocessing pane, choose <strong>VanCMA_CT_2016</strong> as the feature zone data, and <strong>Van_Greenest_ProjectRaster</strong> as the Input value raster.</p>
+<ul>
+  <li>Set CTUID as the Zone Field</li>
+  <li>Select All statistics types</li>
+</ul>
+
+<p><strong class="label label-red">2</strong> Right click on VanCMA_CT_2016 and choose Joins and Relates &gt; Add Join.</p>
+<ul>
+  <li>Set CTUID as the Input Join Field</li>
+  <li>Choose the Zonal Statistics table as your input. <em>(the name should look something like ZonalST_VanCMA_1)</em></li>
+  <li>Make sure CTUID is selected as the Join Table Field as well</li>
+</ul>
+
+<p><strong class="label label-red">3</strong> Inspect the Join</p>
+<ul>
+  <li>Open the attribute table and note the new columns at the end</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DBFmPbMekHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h1 id="method-2">Method 2</h1>
+
+<h2 id="raster-to-polygon-conversion-and-intersection">Raster to Polygon Conversion and Intersection</h2>
+
+<p>We are going to convert the classified raster layer to a vector layer.  Then we can overlay the resulting vector layer with the VanCMA_CT_2016 layer using an intersect which will let us calculate the total green vegetation area per CT in the next step.  You can reference the video below for guidance.</p>
+
+<p><strong class="label label-green">1</strong> Find the <strong>Raster to Polygon</strong> tool in the geoprocessing pane.</p>
+<ul>
+  <li>Set the Classified NDVI image as the Input raster</li>
+  <li>Choose Value as the Field</li>
+</ul>
+
+<p><strong class="label label-green">2</strong> Find the <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm">Intersect tool</a> in the geoprocessing pane.  It will combine the feature classes where they overlap and exclude all other areas.  We’ll talk a lot more about this tool.</p>
+
+<ul>
+  <li>Set Van_DA_2016 and the output from the raster to polygon conversion as the inputs.  Then click run.</li>
+  <li>Change the symbology and open the attribute table to confirm the results look like what we’d expect.</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nFynnK6SEnI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="calculate-the-green-vegetation-area-and-dissolve-by-ct">Calculate the Green Vegetation Area and Dissolve by CT</h2>
+
+<p>Now we are going to calculate the total green vegetation area by CT, and toss out a bunch of the unnecessary data.</p>
+
+<p><strong class="label label-blue">1</strong> Add a new field to the VanCMA_CT_2016_Intersect layer called “Green_Veg_Area” so we</p>
+<ul>
+  <li>Name the field Green_Veg_Area</li>
+  <li>Make sure the data type is <strong>Double</strong>.</li>
+</ul>
+
+<p><strong class="label label-blue">2</strong> Choose Select by Attribute and set your query to: Where gridcode is equal to 3.</p>
+
+<p><strong class="label label-blue">3</strong> Right click on Green Veg Area and choose <strong>Calculate Field</strong>.  This allows us to define a function and apply it to the table.</p>
+<ul>
+  <li>Set the expression to: Green_Veg_Area = Shape_Area
+    <ul>
+      <li><em>Note</em> you only need to complete the right side of the equation</li>
+      <li>This will simply copy the shape area for the green vegetation areas, we will work with a more complex expression on the next page.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong class="label label-blue">4</strong> We want to assign all other rows a 0.  We can quickly invert our selection with the <strong>Switch</strong> button.</p>
+<ul>
+  <li>Calculate the field again, but with Green_Veg_Area = 0
+    <ul>
+      <li>We have selected gridcode 1 &amp; 2 (Not vegetation) so they all get zeros.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="data-normalization">Data Normalization</h2>
+
+<p>One last thing step!  We need to account for a confounding factor.  The CTs are different sizes.  To better compare the CTs (which are vastly different sizes), lets Normalize our results by the total area of each CT!  <strong>Normalizing</strong>, sometimes also referred to as standardizing, is the process of dividing one variable by another variable to account for their relationship.  It can help us identify patterns that might be masked by a confounding variable.</p>
+
+<p><strong class="label label-yellow">1</strong> Add a new field called “PCT_Green_Space”.</p>
+<ul>
+  <li>Make sure you set the data type to <strong>Double</strong></li>
+</ul>
+
+<p><strong class="label label-yellow">2</strong> Calculate the field using the following equation:</p>
+<ul>
+  <li>PCT_Green_Space = SUM_Green_Veg_Area/Shape_Area
+    <ul>
+      <li><em>Note</em> you only need to complete the right side of the equation</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong class="label label-yellow">3</strong> Right click on PCT_Green_Space and select “Statistics”</p>
+<ul>
+  <li>This will bring up some descriptive statistics for this field.</li>
+</ul>
+
+<p><strong class="label label-blue">10</strong> In the VanDA_2016 attribute table, add a Field called <strong>Green_Vegetation_Fraction</strong>.</p>
+<ul>
+  <li>Give it the alias Green Vegetation Fraction.</li>
+  <li>Make sure its type is: double.</li>
+</ul>
+
+<p><strong class="label label-blue">11</strong> Use the field calculator to apply an expression to your <strong>Green Vegetation Fraction</strong> field.</p>
+<ul>
+  <li>Divide SUM_Green_Veg_Area (yours might have a slightly different name) by the Shape_Area.  This will give us the percentage of the DA that is covered by Dense Green Vegetation.</li>
+</ul>
+
+<div style="overflow: hidden;
+  padding-top: 56.25%;
+  position: relative">
+  <iframe src="content/videos/Norm.mp4" title="Processes" scrolling="no" frameborder="0" style="border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;">
+   <p>Your browser does not support iframes.</p>
+ </iframe>
+</div>
+<p><a href="content/videos/Norm.mp4" target="_blank">View Image in New Tab</a></p>
+
+<h1 id="inspect-and-compare-the-outputs">Inspect and Compare the Outputs</h1>
+
+<p><strong class="label label-green">1</strong> Open the Attribute Table of VanDA_2016.  Double click on <strong>Mean</strong> to sort by that column in ascending/descending order.  Take note of the DAUID for of the DA with the highest value.  Do the same for <strong>Green Veg Fraction</strong>.  Are they the same?</p>
+
+<p><strong class="label label-green">2</strong> Create a new Scatter plot. Set the X-axis to <strong>Green Veg Fraction</strong> and the Y-axis to <strong>Mean</strong>.  Think about the relationship between these variables and what might describe the pattern you see.</p>
+
+<p><strong class="label label-green">3</strong> Change the Y-axis to <strong>Income</strong>.  Make sure to <strong>Exclude the zeros</strong> using the same procedure as earlier.  Look at the resulting relationship.  Is the <strong>Green Veg Fraction</strong> a good predictor of income?  Try changing the X-axis to <strong>Mean</strong> to see if it gives a better result?</p>
+
+<!-- 
+### QA6
+What is the DAUID of the DA with the highest Green Veg Area?
+
+### QA7
+Is the DA with the highest mean NDVI value the same as the DA with the greatest area of green vegetation? Y/N
+
+### QA8
+Create a scatter plot, with the Mean NDVI value (Output from Method 1) on the X-axis Green and Veg Area Sum (Output from Method 2) on the Y-axis.  What is the R2 value? 
+
+### QA9
+The r2 score indicates Mean NDVI value is [Strong/Moderate/Weak/Very Weak] predictor of Green Veg Area.
+
+### QA10
+Change the Y-axis to Income and leave the X-axis as Mean NDVI, note the R2 score.  Now change the X-axis to the Green Veg Area Sum and note the R2 score.  Which variable has a "stronger" relationship with income? [Green Veg Area/Mean NDVI]
+
+### QA11
+Are either of these variables strongly linked to income? [Yes/No/Just Mean NDIV/Just Green Veg Area] -->
+
+:ET
