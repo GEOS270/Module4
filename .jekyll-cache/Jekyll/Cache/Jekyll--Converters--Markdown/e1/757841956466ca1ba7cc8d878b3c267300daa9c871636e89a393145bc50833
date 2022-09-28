@@ -1,0 +1,45 @@
+I"M<details open="">
+  <summary class="text-delta">
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#masking-values" id="markdown-toc-masking-values">Masking Values</a></li>
+  <li><a href="#making-the-map" id="markdown-toc-making-the-map">Making the Map</a>    <ol>
+      <li><a href="#adding-a-chart-to-the-layout" id="markdown-toc-adding-a-chart-to-the-layout">Adding a Chart to the Layout</a></li>
+      <li><a href="#add-other-map-elements" id="markdown-toc-add-other-map-elements">Add Other Map Elements</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+<hr />
+
+<h1 id="masking-values">Masking Values</h1>
+
+<p>Arc gives you a couple options for “excluding” data (e.g. Selecting Where Housing &gt; 0 for a chart) but the built in options are a bit lacking.  Its better to be explicit about it.  Watch the video below so you can properly represent the missing data values on your map <strong>and</strong> make sure they are excluded from your charts.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MvPm7HPO7Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h1 id="making-the-map">Making the Map</h1>
+
+<p>Your task is to create a layout with <strong>one map</strong> and <strong>two charts</strong>.  The map should show the Housing Cost by Census Tract and the charts should show Housing cost vs. Mean NDVI and Percent Green Space respectively.  Add a layout to your map.  Choose the 8.5”:” x 11” Letter size, in the Landscape orientation.</p>
+
+<h2 id="adding-a-chart-to-the-layout">Adding a Chart to the Layout</h2>
+
+<p>Arc allows you to add charts to your layout in addition to maps.  For this map, add you map on the left and <strong>two</strong> charts on the right side, one showing Mean NDVI vs. Housing and the other showing PCT_Greenspace vs. Housing.  The video below can show you how to do that.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cltaidsZQ80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="add-other-map-elements">Add Other Map Elements</h2>
+
+<p>Add all the appropriate map elements: Title, Legend, Scale Text, North Arrow (<em>optional, Vancouver is familiar</em>), and Source Statement.  The video below gives you some pointers for formatting a legend.  I’ll leave it to you to decide on the final stylistic choices for you map (color, map element placements, font sizes etc.)  You can reference previous Modules for a refresher on how to do the other steps and refer to Module 3 for some stylistic guidelines.</p>
+<ul>
+  <li><strong>Note</strong> for the Name/Source Statement
+    <ul>
+      <li>The census data came from Statistics Canada and the MODIS data used to calculate the NDVI values came from NASA.  Even though the data were accessed using simply analytics and google earth engine, its best practice to give the original source when you can.</li>
+    </ul>
+  </li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bDkHK-0Wbdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+:ET
