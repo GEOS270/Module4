@@ -11,7 +11,7 @@ This lab gives you an introduction into how to conduct a "full" GIS workflow.
 
 ## Research Question
 
-What is the relationship between neighborhood green vegetation coverage and income in Vancouver?
+What is the relationship between neighborhood green vegetation coverage and housing cost in Vancouver?
 
 
 # Workflow
