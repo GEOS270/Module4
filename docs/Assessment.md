@@ -83,8 +83,9 @@ Why did we calculate the PCT_Green_Space field?
 Describe the relationship between the **Mean_NDVI** value per CT and and the **PCT_Green_Space** per CT.  Are they telling us the same thing?  How Strongly are they related?
 
 [**13**](Application_Part4.md#inspect-and-compare-the-outputs)
-Are either **Mean_NDVI** or **PCT_Green_Space** strongly linked to housing cost? Explain what evidence supports your conclusion? Are there any improvement you think we could make to this analysis?
+Are either **Mean_NDVI** or **PCT_Green_Space** strongly linked to housing cost? What evidence supports this conclusion? How might we refine our analysis using Ordinary Least Squares Regression? Suggest a two other factors you think we should include in our analysis besides **Mean_NDVI** or **PCT_Green_Space**? Are there any other more general improvements you think we could make to this analysis beyond just adding more variables to our model?
 
 [**14**](Application_Part5.md)
 Export your Layout as a .pdf and upload it to Canvas.
+
 

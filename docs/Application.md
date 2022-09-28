@@ -20,7 +20,7 @@ How we will answer the research question:
 
 1) Estimate vegetation coverage with satellite data and overlay census data.
 
-2) Plot the relationship between vegetation coverage and income and run linear regression analysis.
+2) Plot the relationship between vegetation coverage and housing cost and run linear regression analysis.
 
 3) Visualize the results.
 

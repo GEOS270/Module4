@@ -6,6 +6,11 @@ nav_order: 3
 ---
 
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
 <details open markdown="block">
   <summary>
     Table of contents
@@ -48,8 +53,13 @@ These Census data are in **Vector** format.  A key advantage of Vector Data is t
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cWr6B9Pp4Dc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## A Note on Linear Regression.
-A regression line is also know as a "line of best fit".  [Linear regression](https://en.wikipedia.org/wiki/Linear_regression#Introduction) assumes the relationship between an X variable (eg. Income) and a Y variable (eg. Housing) follows a linear relationship (eg. Y=MX + B) where M is the slope and B is the intercept. 
-* Any deviations from this linear relationship are "errors".  That is, all the other variability that cannot be explained by the model.  Rental cost is impacted by many factors (eg. scarcity) that aren't as easy to capture with census data alone.
+A regression line is also know as a "line of best fit".  [Linear regression](https://en.wikipedia.org/wiki/Linear_regression#Introduction) assumes a linear relationship between some an independent variable (e.g. Income) and a dependent variable (eg. Housing).  This is the simplest form of regression is know as **Simple Linear Regression**.  In this model, the dependent variable Y is influenced by the independent variable X proportional to the slope m.  If m = 1 means a 1:1 relationship between X & Y, m = 2 would mean Y increases by 2 units for every 1 unit increase in X, m = 0.5 would mean Y increases by 1/2 unit for every 1 unit increase in X.  The intercept b accounts for an offset (bias) in the model.  
+
+$$ Y=mX + b $$
+
+
+
+* Any deviations from this linear relationship are "errors".  That is, all the other variability that cannot be explained by the model.  Housing cost is impacted by many factors (eg. scarcity) that aren't as easy to capture with census data alone.
 * In the example below for Van_DA_2016 (before excluding zeros), M = 0.0123 and b = 660.1, which means at $0 income, rent is $660.1.  And for every $100 increase in income, rent goes up $1.23.
 
 <img src="content/images/Statistics.png" alt="hi" class="inline"/>

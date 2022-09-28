@@ -5,6 +5,9 @@ parent: Lab Assignment
 nav_order: 4
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 <details open markdown="block">
   <summary>
@@ -111,12 +114,33 @@ One last thing step!  We need to account for a confounding factor.  The CTs are 
 
 Lets see how the two methods compare?
 
-**1**{: .label .label-green } Open the Attribute Table of VanCMA_CT_NDVI_Veg.  Double click on **Mean_NDVI** to sort by that column in ascending/descending order.  Take note of the CTUIDs for of the CTs with the highest values.  Now look at  **SUM_Green_Veg_Area** and **PCT_Green_Space**.  Do they all match up, or are there some differences?
+**1**{: .label .label-purple } Open the Attribute Table of VanCMA_CT_NDVI_Veg.  Double click on **Mean_NDVI** to sort by that column in ascending/descending order.  Take note of the CTUIDs for of the CTs with the highest values.  Now look at  **SUM_Green_Veg_Area** and **PCT_Green_Space**.  Do they all match up, or are there some differences?
 
-**2**{: .label .label-green } Create a new Scatter plot. Set the X-axis to **Mean_NDVI** and the Y-axis to **SUM_Green_Veg_Area**.  Look at the R2 score and think about the relationship between these variables.  Now change the Y-axis to **PCT_Green_Space** and not how the relationship changes.
+**2**{: .label .label-purple } Create a new Scatter plot. Set the X-axis to **Mean_NDVI** and the Y-axis to **SUM_Green_Veg_Area**.  Look at the R2 score and think about the relationship between these variables.  Now change the Y-axis to **PCT_Green_Space** and not how the relationship changes.
+
+**3**{: .label .label-purple } Change X-axis to **Mean_NDVI** the Y-axis to **Housing**.  Make sure to **Exclude the zeros** using the same procedure as earlier then look at the resulting relationship.  Is the **Mean_NDVI** a good predictor of housing cost?  Create a second scatter plot with **Housing** on the Y-axis but set the X-axis to **PCT_Green_Space**.  Does it gives a better result?  *Make sure to filter the second chart*
+
+**4**{: .label .label-purple } In addition to filtering by a selection, you can also filter a scatterplot by **Extent**.  This will limit the points on the chart to only the polygons visible in the map window.  Then try filtering by extent and panning/zooming around your the Metro Vancouver area and take note of how the charts and R2 values update as you move around.
+
+<img src="content/images/filter.png" alt="hi" class="inline"/>
+
+## Ordinary Least Squares Regression
 
 
-**3**{: .label .label-green } Change X-axis to **Mean_NDVI** the Y-axis to **Housing**.  Make sure to **Exclude the zeros** using the same procedure as earlier then look at the resulting relationship.  Is the **Mean_NDVI** a good predictor of housing cost?  Try changing the X-axis to **PCT_Green_Space** to see if it gives a better result?
+Like the name suggests, simple linear regression is ... simple.  It can only account for the influence of one independent variable at a time.  Reality is rarely this straightforward and typically there are numerous factors influencing a dependent variable.  A more general version of linear regression is known as **Ordinary Least Squares** regression.  This model allows us to account for multiple dependent variables.  For instance, a three factor OLS model (three dependent variables) would look something like this:
+
+
+$$ Y=aX_1 + bX_2 + cX_3 + d $$
+
+* X<sub>1</sub>, X<sub>2</sub>, and X<sub>3</sub> are all dependent variables and a, b, and c are their respective coefficients (slopes) while d is the intercept.
+* Imagine a simple example that might be used in the real word: trying and estimate the total damage in dollars (Y) from a storm:
+  * X<sub>1</sub> = maximum wind speed
+  * X<sub>2</sub> = total rainfall
+  * X<sub>3</sub> = population of area effected.
+* This model won't give a perfect estimate, but by accounting for two aspects of the storm it will do a much better job describing the storm than just wind speed or rainfall alone.  Further, by accounting for population it will give us some idea of number of people impacted.  A storm in an uninhabited area wont cause much damage regardless of its strength, but in a large metro area it will cause significant damage.
+
+Think about how this model might be applied to improve our analysis?
+
 
 
 
