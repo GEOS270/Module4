@@ -88,6 +88,8 @@ Now we are going to calculate the total green vegetation area by CT, and toss ou
 * Calculate the field again, but with Green_Veg_Area = 0
   * We have selected gridcode 1 & 2 (Not vegetation) so they all get zeros.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dUd8UbF2dQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Data Normalization
 
