@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- <meta charset="utf-8"> -->
+
+  <title>Reveal.js template</title>
+  <!-- credit https://bl.ocks.org/elipousson/f64814b1ee4aab5d83775bfbf556d35a -->
+
+  <meta name="description" content="Simple Reveal.js slidedeck template. Source files loaded from jsDelivr.">
+  <meta name="author" content="jitesh@spinspire.com">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+  <link id="theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/serif.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    // Load print, pdf stylesheets from jsDelivr
+    var srcUrlPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = srcUrlPrefix + (window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css');
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  <style>
+    
+.container {
+  position: fixed;
+    height: 700px;
+    width: 100%;
+}
+
+.title{
+  position: relative;
+  top: 5%;
+}
+
+.subtitle{
+  position: relative;
+  top: 10%;
+}
+
+.question{
+  position: relative;
+  text-align: left;
+  top: 10%;
+}
+
+
+.header {
+  top: 1%;
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  text-align: left;
+}
+
+.full {
+  width: 95%;
+  top:  12%;
+  left: 0%;
+  text-align: left;
+  position: absolute; 
+}
+
+.left {
+  width: 49%;
+  height: 80%;
+  top: 12%;
+  left: 0%;
+  position: absolute;
+  text-align: left;
+}
+
+.right {
+  width: 49%;
+  top: 12%;
+  height: 80%;
+  left: 51%;
+  position: absolute;
+  text-align: left;
+}
+
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.figure {
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+
+.subfigure {
+  width: 100%;
+  /* height: 100%; */
+  left: 0%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+h1 {
+  display: block;
+  font-size: 3em !important; 
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+  
+h2 {
+  display: block;
+  font-size: 1.5em !important;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.reveal a {
+  color: blue;
+}
+
+.reveal {
+  background-color: #e6f9fc;
+}
+
+ul {
+    padding-left: 0;
+    font-size: 90%;
+
+} 
+
+ol {
+  counter-reset: item;
+  font-size: 90%;
+  padding-left: 0;
+}
+
+li.nl {
+  display: block;
+}
+
+li.nl:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+ol ol li.nl::before {
+    content: counters(item, ".") " ";
+}
+
+#main img {
+    float: left;
+}
+
+.col {
+    flex: 1
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+
+        <section>
+            <div class="title">
+                <h1>Spatial is Special</h1>
+            </div>
+            <div class="subtitle">Spatial data has special properties that we must take into consideration</div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">First Law of Geography</h2>
+                <div class="left">
+                    <p>"Everything is related to everything else,<br>but near things are more related than distant things." <br> -Waldo Tobler</p>
+                </div>
+                <div class="figure">
+                    <img src="images/03-spatial-is-special.jpg" width="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">First Law of Geography</h2>
+                <div class="left">
+                    <p>This might seem obvious:</p>
+                        <ul>
+                            <li>Students in the same class interact more.</li>
+                            <li>Orca pods in different areas develop different dialects.</li>
+                            <li>Hemlocks in BC are more related to each other than to hemlocks in NB.</li>
+                        <ul>
+                </div>
+                <div class="figure">
+                    <img src="images/03-spatial-is-special.jpg" width="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">First Law of Geography</h2>
+                <div class="left">
+                    <p>Not a <b>grantee</b> of similarity.</p>
+                        <ul>
+                            <li>Vancouver's average snowfall is &lt; 30 cm/yr</li>
+                            <li>Grouse Mountain frequently exceeds 9 m/yr</li>                            
+                        </ul>
+                </div>
+                <div class="figure">
+                    <img src="images/03-spatial-is-special.jpg" width="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+
+        <section>
+            <div class="container">
+                <h2 class="header">First Law of Geography</h2>
+                <div class="left">
+                    <p>What do you have in common with your neighbor?</p>
+                        <ul>
+                            <li class="fragment fade-in">Are you in the same city?</li>
+                            <li class="fragment fade-in">Do you have the same major?</li>
+                            <li class="fragment fade-in">Are you from the same hometown?</li>
+                        </ul>
+                </div>
+                <div class="figure">
+                    <img src="images/03-spatial-is-special.jpg" width="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Spatial Homogeneity</h2>
+                <div class="left">
+                    <p>Even distribution of discrete objects trough space, or values (qualitative or quantitative) across a continuous field.</p>
+                </div>
+                <div class="right">
+                    <img src="images/corn.jpg" width="100%" style="border: solid 2px black">
+                </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Spatial Heterogeneity</h2>
+                <div class="left">
+                    <p>Uneven distribution of discrete objects trough space, or variation of values (qualitative or quantitative) across a continuous field.</p>
+                    <ul>
+                        <li>Opposite of <b>Spatial Homogeneity</b></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <img src="images/BasinPhoto.JPG" width="100%" style="border: solid 2px black">
+                </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Spatial Autocorrelation</h2>
+                <div class="full">
+                    <img src="images/03-autocorrelation.png" width="900">
+                    <p>Measure of similarity across space.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Spatial Heterogeneity</h2>
+                <div class="left">
+
+                </div>
+                <div class="right">
+                    
+                    <iframe src="videos/SiteTour.mp4" title="Processes"
+                    style="
+                            height: 80%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 80%;">
+                </iframe>
+                </div>
+            </section>
+        
+
+
+    </div><!-- .slides -->
+
+  </div><!-- .reveal -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/math/math.min.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      overview: false,
+      loop: false,
+      margin: 0.03,
+      width: 1350,
+      height: 700,
+      transition: 'none',
+      plugins: [ RevealMath.MathJax2 ]
+    },
+
+
+    );
+  </script>
+</body>
+
+</html>
