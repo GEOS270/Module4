@@ -27,5 +27,3 @@ You might encounter the phrase "Spatial is special" in your time studying GIS.  
 </div>
 <a href="content/Tobler.html" target="_blank">View Image in New Tab</a>
 
-
-Download the slides as a .pdf [here](https://raw.githubusercontent.com/June-Skeeter/Module2_GEOS270/main/docs/content/Toblers_Law.pdf)
