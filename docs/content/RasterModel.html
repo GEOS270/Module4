@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- <meta charset="utf-8"> -->
+
+  <title>Reveal.js template</title>
+  <!-- credit https://bl.ocks.org/elipousson/f64814b1ee4aab5d83775bfbf556d35a -->
+
+  <meta name="description" content="Simple Reveal.js slidedeck template. Source files loaded from jsDelivr.">
+  <meta name="author" content="jitesh@spinspire.com">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+  <link id="theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/serif.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    // Load print, pdf stylesheets from jsDelivr
+    var srcUrlPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = srcUrlPrefix + (window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css');
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  <style>
+    
+.container {
+  position: fixed;
+    height: 700px;
+    width: 100%;
+}
+
+.title{
+  position: relative;
+  top: 5%;
+}
+
+.subtitle{
+  position: relative;
+  top: 10%;
+}
+
+.question{
+  position: relative;
+  text-align: left;
+  top: 10%;
+}
+
+
+.header {
+  top: 1%;
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  text-align: left;
+}
+
+.full {
+  width: 95%;
+  top:  12%;
+  left: 0%;
+  text-align: left;
+  position: absolute; 
+}
+
+.left {
+  width: 49%;
+  height: 80%;
+  top: 12%;
+  left: 0%;
+  position: absolute;
+  text-align: left;
+}
+
+.right {
+  width: 49%;
+  top: 12%;
+  height: 80%;
+  left: 51%;
+  position: absolute;
+  text-align: left;
+}
+
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.figure {
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+
+.subfigure {
+  width: 100%;
+  /* height: 100%; */
+  left: 0%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+h1 {
+  display: block;
+  font-size: 3em !important; 
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+  
+h2 {
+  display: block;
+  font-size: 1.5em !important;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.reveal a {
+  color: blue;
+}
+
+.reveal {
+  background-color: #e6f9fc;
+}
+
+ul {
+    padding-left: 0;
+    font-size: 90%;
+
+} 
+
+ol {
+  counter-reset: item;
+  font-size: 90%;
+  padding-left: 0;
+}
+
+li.nl {
+  display: block;
+}
+
+li.nl:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+ol ol li.nl::before {
+    content: counters(item, ".") " ";
+}
+
+#main img {
+    float: left;
+}
+
+.col {
+    flex: 1
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+      <section>
+          <div class="title">
+              <h1>Raster Data Model</h1>
+          </div>
+          <div class="subtitle">A simple, storage intensive format best suited for <b>continuous fields</b>.</div>
+      </section>
+
+      <section>
+        <div class="container">
+            <h2 class="header">Raster Data Model</h2>
+            <div class="left">
+            <p>Represents space <b>continuously</b>:</p>
+            <ul>
+                <li>Rectangular grid of equally sized cells</li>
+                <li>Each cell only has <b>one value</b></li>
+            </ul>
+            </div>
+            <div class="right">
+                <img src="images/03-raster-example.png" width="100%" style="border: solid 2px black">
+            </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="container">
+            <h2 class="header">Raster Data Model</h2>
+            <div class="left">
+                <p>Multiple attributes, require multiple <b>bands</b>
+                <ul>
+                    <li>Standard color photos have three bands:
+                    <ul>
+                        <li>Red, green, & blue</li>
+                    </ul>
+                    </li>
+                    <li>LANDSAT8 has 11 bands:
+                    <ul>
+                        <li>"False Color Images"</li>
+                        <li>Spectral Indices (NDVI)</li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="right" style="text-align: center">
+                <img src="images/DeltaMap.png" height="100%" style="border: solid 2px black">
+            </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="container">
+            <h2 class="header">Resolution & Extent</h2>
+            <div class="left">
+                <p><b>Resolution</b>: cell size.</p>
+                <ul>
+                  <li>1 m x 1 m = 1 m<sup>2</sup></li>
+                </ul>
+                <p><b>Extent</b>: depends on number of cells.</p>
+                <ul>
+                  <li>5 rows, 5 columns</li>
+                  <li>1 m cell size</li>
+                  <li>Covers 5 m x 5 m</li>
+                </ul>
+            </div>
+            <div class="right" style="text-align: center">
+                <img src="images/03-raster-example.png" height="100%" style="border: solid 2px black">
+            </div>
+        </div>
+      </section>
+      
+
+
+      <section>
+        <div class="container">
+          <h1 class="title">TopHat Question 1</h1>
+            <div class="question">
+              <p>Everything is related to everything else, but ...</p>
+              <ul>
+                <li>near things are less related than distant things</li>
+                <li>near things are more related than distant things</li>
+                <li>near things are aren't related than distant things</li>
+              </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="container">
+          <h2 class="header">Spatial Homogeneity</h2>
+          <div class="left">
+            <p>Even distribution of discrete objects trough space, or values (qualitative or quantitative) across a continuous field.</p>
+          </div>
+          <div class="right">
+            <img src="images/corn.jpg" width="100%" style="border: solid 2px black">
+          </div>
+      </section>
+
+      <section>
+          <div class="container">
+            <h2 class="header">Spatial Heterogeneity</h2>
+            <div class="left">
+              <p>Uneven distribution of discrete objects trough space, or variation of values (qualitative or quantitative) across a continuous field.</p>
+              <ul>
+                <li>Opposite of <b>Spatial Homogeneity</b></li>
+              </ul>
+            </div>
+            <div class="right">
+              <img src="images/BasinPhoto.JPG" width="100%" style="border: solid 2px black">
+            </div>
+      </section>
+      
+      <section>
+        <div class="container">
+          <h2 class="header">Spatial Heterogeneity</h2>
+          <div class="full">
+            <div style="overflow: hidden;
+            padding-top: 56.25%;
+            position: relative">
+              <iframe src="videos/SiteTour.mp4" title="Processes" scrolling="no" frameborder="0"
+                style="border: 0;
+              height: 75%;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 100%;">
+              </iframe>
+            </div>
+          </div>
+      </section>
+      
+      <section>
+        <div class="container">
+          <h2 class="header">Spatial Autocorrelation</h2>
+          <div class="full">
+            <p>A measure of similarity Homogeneity/heterogeneity.</p>
+            <ul>
+              <li>Positive: Clustered/grouped in space</li>
+              <li>Negative: Dispersed across space</li>
+              <li>Many natural systems exhibit <b>positive</b> spatial autocorrelation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Spatial Autocorrelation</h2>
+        <div class="full">
+          <img src="images/03-autocorrelation.png" width="100%" style="border: solid 2px black">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h1 class="title">TopHat Question 2</h1>
+          <div class="question">
+            <p>These phenomena tend to exhibit a high degree of spatial autocorrelation (select all that apply)</p>
+            <ul>
+              <li>Air Temperature</li>
+              <li>Elevation</li>
+              <li>Precipitation</li>
+              <li>COVID Cases</li>
+              <li>Randomly Selected Samples</li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Revisiting Scale</h2>
+        <div class='left'>
+          <p><b>Map scale</b>: ratio of map units to real world units.</p>
+          <ul>
+            <li><u> Small Scale</u>: Large area, more generalization, less detail.</li>
+            <li><u> Large Scale</u>: Small area, more detail, less generalization.</li>
+          </ul>
+        </div>
+        <div class="right">
+          <img src="images/scale_general.png" width="100%" style="border: solid 2px black">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Time Scale</h2>
+        <div class='left'>
+          <p>Time is "one dimensional", but many of the same concepts related to scale apply.</p>
+          <ul>
+            <li>Just as features are exhibit spatial autocorrelation, they typically exhibit temporal autocorrelation</li>
+          </ul>
+        </div>
+        <div class="right">
+          <img src="images/03-time-scale.png"  width="100%" style="border: solid 2px black">
+        </div>
+     </section>
+
+     <section>
+      <div class="container">
+        <h2 class="header">Analysis Scale</h2>
+        <div class="left">
+          <p>Different phenomena operate on different temporal and spatial scales.</p>
+          <ul>
+            <li>No need to model tornadoes in a global climate model.</li>
+            <li>Impractical to map turbulence globally.</li>
+          </ul>
+        </div>
+        <div class="right">
+          <img src="images/03-scales.png"  width="100%" style="border: solid 2px black">
+        </div>
+     </section>
+
+
+     <section>
+      <div class="container">
+        <h2 class="header">Analysis Scale</h2>
+        <div class="left">
+          <p>Different phenomena operate on different temporal and spatial scales.</p>
+          <ul>
+            <li>Identify the scale relevant to your analysis.</li>
+          </ul>
+        </div>
+        <div class="right">
+          <img src="images/coastal_scale.jpg"  width="100%" style="border: solid 2px black">
+        </div>
+     </section>
+
+     <section>
+      <div class="container">
+        <h1 class="title">TopHat Question 3</h1>
+          <div class="question">
+            <p>Tobler's First Law of Geography applies to time just as it applies to space.</p>
+            <ul>
+              <li>True</li>
+              <li>False</li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Bonini's paradox</h2>
+        <div class="full">
+         <p>As a model of a complex system becomes more complete, it becomes less understandable.</p>
+          <ul>
+            <li>It will eventually be just as difficult to understand as the real-world processes it represents</li>
+            <ul>
+              <li>A 1:1 scale map needs to be as big as the features you are mapping</li>
+              <li>A life size model house ... would be the size of a regular house</li>
+            </ul>
+            <li>At a certain point, we have to ignore the heterogeneity.</li>
+          </ul>
+         </div>
+       </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Map the Forest not the Trees</h2>
+        <div class="left">
+          <p>We don't need the location of every tree to map a forest.</p>
+          <ul>
+            <li>Use average presence of trees over a larger area</li>
+            <li>Group by dominant species or category</li>
+          </ul>
+        </div>
+        <div class="right">
+          <img src="images/03-forest-for-the-trees.jpg"  width="100%" style="border: solid 2px black">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Similarity Across Space</h2>
+        <div class="full">
+          <p>Often, the system we want to map will exhibit high degrees of both spatial heterogeneity <b>and</b> autocorrelation.</p>
+          <ul>
+            <li>What is <i>heterogeneous</i> at one scale may be <b>homogeneous</b> at another.</li>
+          </ul>
+         </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Spatial Data Models</h2>
+        <div class="full">
+          <p>We can exploit spatial autocorrelation to simplify data representation.</p>
+          <img src="images/03-vector-v-raster.jpg"  width="100%" style="border: solid 2px black">
+        </div>
+    </section>
+
+
+
+    <section>
+      <div class="container">
+        <h2 class="header">Spatial Resolution</h2>
+        <div class="left">
+          <p>Relates to the level of spatial detail in a dataset.</p>
+          <ul>
+            <li>What is the smallest feature that is included in a dataset?</li>
+          </ul>
+        </div>
+        <div class="right">
+          <img src="images/03-resolution.gif"  width="100%" style="border: solid 2px black">
+        </div>
+      </div>
+     </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Temporal Resolution</h2>
+        <div class="left">
+          <p>Relates to the level of temporal detail in a dataset.</p>
+          <ul>
+            <li>Over what time period is the data valid?</li>
+            <li>Are there multiple observations?</li>
+          </ul>
+        </div>
+        <div class="right" style="text-align: center">
+        <img src="images/03-NDVI.gif" height ="100%" style="border: solid 2px black">
+         </div>
+     </section>
+
+
+     <section>
+      <div class="container">
+        <h2 class="header">Resolution vs. Scale</h2>
+        <div class="full">
+          <p>The scale of our analysis dictates our desired resolution.  But data resolution can limit the scale of our analysis.</p>
+        </div>
+      </div>
+    </section>
+
+     <section>
+      <div class="container">
+        <h2 class="header">Scale Dependence</h2>
+        <div class="full">
+          <img src="images/FI_Drone.JPG" width="80%" style="border: solid 2px black">
+         </div>
+      </div>
+    </section>
+
+
+     <section>
+      <div class="container">
+        <h2 class="header">Scale Dependence</h2>
+        <div class="left">
+          <!-- <img src="images/land_class.png" width="400"> -->
+          <p>Acknowledge the heterogeneity where appropriate.</p>
+            <ul>
+              <li>Large scale maps might need more attention to detail.</li>
+              <li>Higher resolution data.</li>
+            </ul>
+         </div>
+        <div class="right" style="text-align: center">
+          <img src="images/footprint_class.jpg" height="100%" style="border: solid 2px black">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="header">Scale Dependence</h2>
+        <div class="left">
+        <p>Count on spatial autocorrelation<br> and call a unit homogeneous where appropriate.</p>
+            <ul>
+              <li>Smaller scale maps can be more generalized.</li>
+              <li>Lower resolution data.</li>
+            </ul>
+         </div>
+        <div class="right">
+          <img src="images/LCM.png" height="100%" style="border: solid 2px black">
+         </div>
+    </section>
+
+
+
+     <section>
+      <div class="container">
+        <h2 class="header">Scale Dependence</h2>
+        <div class="left">
+        <p>At even smaller scales, more and more generalization is required.</p>
+            <ul>
+              <li>Some features become indistinguishable</li>
+              <li>Even lower resolution data is sufficient</li>
+            </ul>
+         </div>
+        <div class="right" style="text-align: center">
+          <img src="images/DeltaMap.png" height="100%" style="border: solid 2px black">
+         </div>
+        </div>
+    </section>
+
+
+    <section>
+      <div class="container">
+        <h2 class="header">Spatial Data Models</h2>
+        <div class="full">
+          <p>Raster and vector models are distinct approaches for addressing the same task.</p>
+          <img src="images/03-vector-v-raster.jpg"  width="100%" style="border: solid 2px black">
+        </div>
+    </section>
+
+
+    <section>
+      <div class="container">
+        <h1 class="title">TopHat Question 4</h1>
+          <div class="question">
+            <p>Spatial data models exploit spatial autocorrelation to simplify our representation of spatial features.</p>
+            <ul>
+              <li>True</li>
+              <li>False</li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- .slides -->
+
+    
+  </div><!-- .reveal -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/math/math.min.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      overview: false,
+      loop: false,
+      margin: 0.03,
+      width: 1350,
+      height: 700,
+      transition: 'none',
+      plugins: [ RevealMath.MathJax2 ]
+    },
+
+
+    );
+  </script>
+</body>
+
+</html>

@@ -3,8 +3,12 @@ layout: default
 title: Satellite Data
 parent: Lab Assignment
 nav_order: 2
-math: mathjax2
 ---
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 <details open markdown="block">
@@ -44,9 +48,7 @@ The lines on the chart below are referred to as a spectral reflectance curves. T
 These differences are the basis for the normalized difference vegetation index (NDVI), one of the most commonly used spectral indices for vegetation monitoring. NDVI is calculated as:
 
 
-$$
-NDVI = \frac{(NIR-Red)}{(NIR+Red)}
-$$
+$$ NDVI = \frac{(NIR-Red)}{(NIR+Red)} $$
 
 where NIR is reflectance in the near-infrared wavelengths, and RED is reflectance in the red wavelengths. This index can range from -1 to 1, with higher values indicating more/greener/healthier vegetation. Look at the graph above and make sure you understand why green vegetation would have a high value of NDVI.
 
@@ -132,11 +134,6 @@ position: relative">
 <a href="content/videos/RunCode.mp4" target="_blank">View Image in New Tab</a>
 
 
-<!-- 
-### WA1
-What is NDVI and what is it used for?  Describe the patterns you see in NDVI across the metro Vancouver area. -->
-
-<!-- NDVI is a metric for gauging vegetation health/density/"greenness".  It is based off the differential reflectivity between red (low for plants) and near infrared (high for plants).  Across metro van - water/concrete low, residential w/ tree cover medium, forests/agriculture high -->
 
 # Downloading the Data
 

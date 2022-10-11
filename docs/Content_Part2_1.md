@@ -35,5 +35,3 @@ A simple but storage intensive method for representing data that is widely ustil
 </div>
 <a href="content/Raster.html" target="_blank">View Image in New Tab</a>
 
-
-Download the slides as a .pdf [here](https://raw.githubusercontent.com/June-Skeeter/Module2_GEOS270/main/docs/content/Raster.pdf)
