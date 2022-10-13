@@ -199,425 +199,390 @@ ol ol li.nl::before {
   <div class="reveal">
 
     <div class="slides">
-      <section>
-          <div class="title">
-              <h1>Raster Data Model</h1>
-          </div>
-          <div class="subtitle">A simple, storage intensive format best suited for <b>continuous fields</b>.</div>
-      </section>
+        <section>
+            <div class="title">
+                <h1>Raster Data Model</h1>
+            </div>
+            <div class="subtitle">
+                A simple, storage intensive format best suited for <b>continuous fields</b>.
+            </div>
+        </section>
 
-      <section>
-        <div class="container">
-            <h2 class="header">Raster Data Model</h2>
-            <div class="left">
-            <p>Represents space <b>continuously</b>:</p>
-            <ul>
-                <li>Rectangular grid of equally sized cells</li>
-                <li>Each cell only has <b>one value</b></li>
-            </ul>
-            </div>
-            <div class="right">
-                <img src="images/03-raster-example.png" width="100%" style="border: solid 2px black">
-            </div>
-        </div>
-      </section>
-      
-      <section>
-        <div class="container">
-            <h2 class="header">Raster Data Model</h2>
-            <div class="left">
-                <p>Multiple attributes, require multiple <b>bands</b>
+        <section>
+            <div class="container">
+                <h2 class="header">Raster Data Model</h2>
+                <div class="left">
+                <p>Represents space <b>continuously</b>:</p>
                 <ul>
-                    <li>Standard color photos have three bands:
+                    <li>Rectangular grid of equally sized cells</li>
+                    <li>Each cell only has <b>one value</b></li>
+                </ul>
+                </div>
+                <div class="right">
+                    <img src="images/03-raster-example.png" width="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+      
+        <section>
+            <div class="container">
+                <h2 class="header">Raster Data Model</h2>
+                <div class="left">
+                    <p>Multiple attributes, require multiple <b>bands</b>
                     <ul>
-                        <li>Red, green, & blue</li>
+                        <li>Standard color photos have three bands:
+                        <ul>
+                            <li>Red, green, & blue</li>
+                        </ul>
+                        </li>
+                        <li>LANDSAT8 has 11 bands:
+                        <ul>
+                            <li>"False Color Images"</li>
+                            <li>Spectral Indices (NDVI)</li>
+                        </ul>
+                        </li>
                     </ul>
-                    </li>
-                    <li>LANDSAT8 has 11 bands:
+                </div>
+                <div class="right" style="text-align: center">
+                    <img src="images/DeltaMap.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+      
+        <section>
+            <div class="container">
+                <h2 class="header">Resolution vs. Extent</h2>
+                <div class="left">
+                  <p><b>Resolution</b>: (aka cell size) is the smallest resolvable feature.</p>
                     <ul>
-                        <li>"False Color Images"</li>
-                        <li>Spectral Indices (NDVI)</li>
+                      <li>1 m x 1 m = 1 m<sup>2</sup></li>
                     </ul>
-                    </li>
-                </ul>
+                  <p><b>Extent</b>: (aka domain) depends on number of rows and columns along with the cell size.</p>
+                    <ul>
+                      <li>5 rows x 5 columns = 25 cells</li>
+                      <li>1 m cell size</li>
+                      <li>Covers 5 m x 5 m = 25 m<sup>2</sup></li>
+                      <li>Domain is sometimes used a</li>
+                    </ul>
+                </div>
+                <div class="right" style="text-align: center">
+                    <img src="images/03-raster-example.png" height="100%" style="border: solid 2px black">
+                </div>
             </div>
-            <div class="right" style="text-align: center">
-                <img src="images/DeltaMap.png" height="100%" style="border: solid 2px black">
-            </div>
-        </div>
-      </section>
-      
-      <section>
-        <div class="container">
-            <h2 class="header">Resolution & Extent</h2>
-            <div class="left">
-                <p><b>Resolution</b>: cell size.</p>
-                <ul>
-                  <li>1 m x 1 m = 1 m<sup>2</sup></li>
-                </ul>
-                <p><b>Extent</b>: depends on number of cells.</p>
-                <ul>
-                  <li>5 rows, 5 columns</li>
-                  <li>1 m cell size</li>
-                  <li>Covers 5 m x 5 m</li>
-                </ul>
-            </div>
-            <div class="right" style="text-align: center">
-                <img src="images/03-raster-example.png" height="100%" style="border: solid 2px black">
-            </div>
-        </div>
-      </section>
-      
+        </section>
 
-
-      <section>
-        <div class="container">
-          <h1 class="title">TopHat Question 1</h1>
-            <div class="question">
-              <p>Everything is related to everything else, but ...</p>
-              <ul>
-                <li>near things are less related than distant things</li>
-                <li>near things are more related than distant things</li>
-                <li>near things are aren't related than distant things</li>
-              </ul>
-          </div>
-        </div>
-      </section>
-      
-      <section>
-        <div class="container">
-          <h2 class="header">Spatial Homogeneity</h2>
-          <div class="left">
-            <p>Even distribution of discrete objects trough space, or values (qualitative or quantitative) across a continuous field.</p>
-          </div>
-          <div class="right">
-            <img src="images/corn.jpg" width="100%" style="border: solid 2px black">
-          </div>
-      </section>
-
-      <section>
+        <section>
           <div class="container">
-            <h2 class="header">Spatial Heterogeneity</h2>
-            <div class="left">
-              <p>Uneven distribution of discrete objects trough space, or variation of values (qualitative or quantitative) across a continuous field.</p>
+            <h2 class="header">Resolution vs. Extent</h2>
+            <div class="full">
+              <p><b>Resolution</b>: 10 m cell size = 100 m<sup>2</sup> area per cell.<br>
+              <b>Extent</b>: varies with number of cells and cell size.</p>
+                <table>
+                  <tr>
+                    <th>Rows</th>
+                    <th>Columns</th>
+                    <th>Extent</th>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>50 m x 50 m = 2,500 m<sup>2</sup></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>50 m x 100 m = 5,000 m<sup>2</sup></td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>1,000 m x 1,000 m  = 1,000,000 m<sup>2</sup></td>
+                  </tr>
+                </table> 
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+          <h1 class="title">TopHat Question 1</h1>
+              <div class="question">
+              <p>Raster resolution is dictated by the number of rows and columns, raster extent is dictated by the cell size.</p>
               <ul>
-                <li>Opposite of <b>Spatial Homogeneity</b></li>
+                  <li>True</li>
+                  <li>False</li>
+                  <li>Sometimes True, Sometimes False</li>
+              </ul>
+          </div>
+          </div>
+        </section>
+
+        <section>
+            <div class="container">
+              <h2 class="header">File Size</h2>
+              <div class="full">
+                <p>The number of cells per image dictates file size:<br>Cells = rows x columns x bands.  </p>
+                <table>
+                  <tr>
+                      <th>Extent</th>
+                      <th>Bands</th>
+                      <th>Cell Size</th>
+                      <th>Cells</th>
+                  </tr>
+                  <tr>
+                      <td>1 x 1 km</td>
+                      <td>1</td>
+                      <td>100 m</td>
+                      <td>100 cells</td>
+                  </tr>
+                  <tr>
+                      <td>1 x 1 km</td>
+                      <td>1</td>
+                      <td>1 m</td>
+                      <td>1,000,000 cells</td>
+                  </tr>
+                      <td>1 x 1 km</td>
+                      <td>3</td>
+                      <td>100 m</td>
+                      <td>300 cells</td>
+                  </tr>
+                  <tr>
+                      <td>1 x 1 km</td>
+                      <td>3</td>
+                      <td>1 m</td>
+                      <td>3,000,000 cells</td>
+                  </tr>
+                </table> 
+              </div>
+           </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">File Size</h2>
+              <div class="full">
+              <p>Increases <b>exponentially</b> with resolution and <b>linearly</b> with number of bands.</p>
+              <table>
+                <tr>
+                    <th>Extent</th>
+                    <th>Bands</th>
+                    <th>Cell Size</th>
+                    <th>Cells</th>
+                </tr>
+                <tr>
+                    <td>1 x 1 km</td>
+                    <td>1</td>
+                    <td>100 m</td>
+                    <td>100 cells</td>
+                </tr>
+                <tr>
+                    <td>1 x 1 km</td>
+                    <td>1</td>
+                    <td>1 m</td>
+                    <td>1,000,000 cells</td>
+                </tr>
+                    <td>1 x 1 km</td>
+                    <td>3</td>
+                    <td>100 m</td>
+                    <td>300 cells</td>
+                </tr>
+                <tr>
+                    <td>1 x 1 km</td>
+                    <td>3</td>
+                    <td>1 m</td>
+                    <td>3,000,000 cells</td>
+                </tr>
+              </table> 
+            </div> 
+          </div>
+        </section>
+      
+        <section>
+          <div class="container">
+            <h2 class="header">Why does this matter?</h2>
+            <div class="full">
+              <p>Downloading, uploading, and processing times will all increase as the file size increases.</p>
+                <ul>
+                  <li>Large raster datasets are computationally "expensive"</li>
+                  <ul>
+                    <li>More cells = more "overhead"</li>
+                  </ul>
+                  <li>Practically speaking, how will this impact you?</li>
+                </ul>
+             </div>
+          </div>
+        </section>
+  
+        <section>
+            <div class="container">
+            <h1 class="title">TopHat Question 2</h1>
+              <div class="question">
+                <p>You downloaded a 3 band LANDSAT8 image covering the UBC campus.  The image's dimensions are 6000m (rows) by 4500m (columns) and the resolution (cell size) is 30m.  How many cells does the image contain?</p>
+                <ul>
+                    <li>30,000</li>
+                    <li>90,000</li>
+                    <li>900,000</li>
+                    <li>2,700,000</li>
+                    <li>27,000,000</li>
+                    <li>81,000,000</li>
+                </ul>
+              </div>
+            </div>
+        </section>
+        
+        <section>
+          <div class="container">
+            <h2 class="header">Metadata in ArcPro</h2>
+            <div class="left">
+              <img src="images/van_greenest.png"  width="100%" style="border: solid 2px black">
+            </div>
+            <div class="right">
+              <img src="images/extent.png"  height="100%" style="border: solid 2px black">
+            </div>
+          </div>
+        </section>
+
+        
+        <section>
+          <div class="container">
+            <h2 class="header">Raster Overlay</h2>
+            <div class="left">
+              <p>Raster data can be used to evaluate algebraic expressions easily and efficiently.</p>
+              <ul>
+                <li>A: Winter Temperature</li>
+                <li>B: Summer Temperature</li>
+                <li>Range: B-A</li>
+                <li>Average: (A+B)/2</li>
               </ul>
             </div>
             <div class="right">
-              <img src="images/BasinPhoto.JPG" width="100%" style="border: solid 2px black">
-            </div>
-      </section>
-      
-      <section>
-        <div class="container">
-          <h2 class="header">Spatial Heterogeneity</h2>
-          <div class="full">
-            <div style="overflow: hidden;
-            padding-top: 56.25%;
-            position: relative">
-              <iframe src="videos/SiteTour.mp4" title="Processes" scrolling="no" frameborder="0"
-                style="border: 0;
-              height: 75%;
-              left: 0;
-              position: absolute;
-              top: 0;
-              width: 100%;">
-              </iframe>
+              <img src="images/03-raster-overlay.png" width="100%" style="border: solid 2px black; background-color: white;">
             </div>
           </div>
-      </section>
-      
-      <section>
-        <div class="container">
-          <h2 class="header">Spatial Autocorrelation</h2>
-          <div class="full">
-            <p>A measure of similarity Homogeneity/heterogeneity.</p>
-            <ul>
-              <li>Positive: Clustered/grouped in space</li>
-              <li>Negative: Dispersed across space</li>
-              <li>Many natural systems exhibit <b>positive</b> spatial autocorrelation</li>
-            </ul>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Raster Calculator</h2>
+            <div class="left">
+              <p>The tool for this in Arc is called the "Raster Calculator"</p>
+              <ul>
+                <li>Raster layers can be "variables" in linear equations</li>
+                <li>Perform simple calculations incorporating one or multiple layers</li>
+                <li>Ideally, layers should have the same resolution and extent</li>
+                  <ul>
+                    <li>Resampling is required if not</li>
+                    <li>Output will be restricted to "smallest" extent</li>
+                  </ul>
+              </ul>
+            </div>
+            <div class="right">
+              <img src="images/03-raster-overlay.png" width="100%" style="border: solid 2px black">
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-    <section>
-      <div class="container">
-        <h2 class="header">Spatial Autocorrelation</h2>
-        <div class="full">
-          <img src="images/03-autocorrelation.png" width="100%" style="border: solid 2px black">
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <div class="container">
-        <h1 class="title">TopHat Question 2</h1>
-          <div class="question">
-            <p>These phenomena tend to exhibit a high degree of spatial autocorrelation (select all that apply)</p>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Key Advantages</h2>
+              <div class="full">
+                <p>The raster data model is well suited for continuous phenomena:</p>
+                 <ul>
+                  <li>Continuous in <b>space</b></li>
+                  <ul>
+                    <li>Complete coverage within the domain (extent), everywhere has a value</li>
+                  </ul>
+                  <li>Continuous in space and <b>time</b></li>
+                  <ul>
+                    <li>Bands can be used to represent time steps</li>
+                    <li>Common tool approach for climate data</li>
+                    <ul>
+                      <li>i.e., bands 1, 2, 3 ... could represent mean Jan, Feb, Mar temperatures</li>
+                    </ul>
+                    </ul>
+                  <li>Simple data structure makes raster overlay easy and efficient</li>
+                  <ul>
+                    <li>Multiple raster layers can be combined and evaluated using expressions</li>
+                    <li>Easy to "show" others what has been done</li>
+                  </ul>
+                </ul>
+              </div>
+
+          </div>
+         </section>
+
+         <section>
+          <div class="container">
+            <h2 class="header">Implications</h2>
+            <div class="left" >
+            <p>Loss of information during rasterization.</p>
             <ul>
-              <li>Air Temperature</li>
-              <li>Elevation</li>
-              <li>Precipitation</li>
-              <li>COVID Cases</li>
-              <li>Randomly Selected Samples</li>
+              <li>A "bigger" issue for larger cells.</li>
+              <li>At a certain point features become unrecognizable.</li>
+              <li>Higher resolution = larger file for equivalent areas.</li>
             </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Revisiting Scale</h2>
-        <div class='left'>
-          <p><b>Map scale</b>: ratio of map units to real world units.</p>
-          <ul>
-            <li><u> Small Scale</u>: Large area, more generalization, less detail.</li>
-            <li><u> Large Scale</u>: Small area, more detail, less generalization.</li>
-          </ul>
-        </div>
-        <div class="right">
-          <img src="images/scale_general.png" width="100%" style="border: solid 2px black">
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Time Scale</h2>
-        <div class='left'>
-          <p>Time is "one dimensional", but many of the same concepts related to scale apply.</p>
-          <ul>
-            <li>Just as features are exhibit spatial autocorrelation, they typically exhibit temporal autocorrelation</li>
-          </ul>
-        </div>
-        <div class="right">
-          <img src="images/03-time-scale.png"  width="100%" style="border: solid 2px black">
-        </div>
-     </section>
-
-     <section>
-      <div class="container">
-        <h2 class="header">Analysis Scale</h2>
-        <div class="left">
-          <p>Different phenomena operate on different temporal and spatial scales.</p>
-          <ul>
-            <li>No need to model tornadoes in a global climate model.</li>
-            <li>Impractical to map turbulence globally.</li>
-          </ul>
-        </div>
-        <div class="right">
-          <img src="images/03-scales.png"  width="100%" style="border: solid 2px black">
-        </div>
-     </section>
-
-
-     <section>
-      <div class="container">
-        <h2 class="header">Analysis Scale</h2>
-        <div class="left">
-          <p>Different phenomena operate on different temporal and spatial scales.</p>
-          <ul>
-            <li>Identify the scale relevant to your analysis.</li>
-          </ul>
-        </div>
-        <div class="right">
-          <img src="images/coastal_scale.jpg"  width="100%" style="border: solid 2px black">
-        </div>
-     </section>
-
-     <section>
-      <div class="container">
-        <h1 class="title">TopHat Question 3</h1>
-          <div class="question">
-            <p>Tobler's First Law of Geography applies to time just as it applies to space.</p>
-            <ul>
-              <li>True</li>
-              <li>False</li>
-            </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Bonini's paradox</h2>
-        <div class="full">
-         <p>As a model of a complex system becomes more complete, it becomes less understandable.</p>
-          <ul>
-            <li>It will eventually be just as difficult to understand as the real-world processes it represents</li>
-            <ul>
-              <li>A 1:1 scale map needs to be as big as the features you are mapping</li>
-              <li>A life size model house ... would be the size of a regular house</li>
-            </ul>
-            <li>At a certain point, we have to ignore the heterogeneity.</li>
-          </ul>
-         </div>
-       </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Map the Forest not the Trees</h2>
-        <div class="left">
-          <p>We don't need the location of every tree to map a forest.</p>
-          <ul>
-            <li>Use average presence of trees over a larger area</li>
-            <li>Group by dominant species or category</li>
-          </ul>
-        </div>
-        <div class="right">
-          <img src="images/03-forest-for-the-trees.jpg"  width="100%" style="border: solid 2px black">
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Similarity Across Space</h2>
-        <div class="full">
-          <p>Often, the system we want to map will exhibit high degrees of both spatial heterogeneity <b>and</b> autocorrelation.</p>
-          <ul>
-            <li>What is <i>heterogeneous</i> at one scale may be <b>homogeneous</b> at another.</li>
-          </ul>
-         </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Spatial Data Models</h2>
-        <div class="full">
-          <p>We can exploit spatial autocorrelation to simplify data representation.</p>
-          <img src="images/03-vector-v-raster.jpg"  width="100%" style="border: solid 2px black">
-        </div>
-    </section>
+             </div>
+            <div class="right">
+              <img src="images/03-raster-resolution.png" width="100%" style="border: solid 2px black">
+             </div>
+        </section>
+  
+        <section>
+          <div class="container">
+            <h2 class="header">Mixed Pixel Problem</h2>
+            <div class="left" >
+              <p>One cell: one value</p>
+              <ul>
+                <li>What if it covers multiple values?</li>
+                <ul>
+                  <li>A: Winner take all</li>
+                  <li>B: Cell center </li>
+                </ul>
+                <li>Other options?</li>
+              </ul>
+            </div>
+            <div class="right">
+              <img src="images/03-mixed-pixel.jpg">
+            </div>
+          </div>
+        </section>
+  
 
 
 
-    <section>
-      <div class="container">
-        <h2 class="header">Spatial Resolution</h2>
-        <div class="left">
-          <p>Relates to the level of spatial detail in a dataset.</p>
-          <ul>
-            <li>What is the smallest feature that is included in a dataset?</li>
-          </ul>
-        </div>
-        <div class="right">
-          <img src="images/03-resolution.gif"  width="100%" style="border: solid 2px black">
-        </div>
-      </div>
-     </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Temporal Resolution</h2>
-        <div class="left">
-          <p>Relates to the level of temporal detail in a dataset.</p>
-          <ul>
-            <li>Over what time period is the data valid?</li>
-            <li>Are there multiple observations?</li>
-          </ul>
-        </div>
-        <div class="right" style="text-align: center">
-        <img src="images/03-NDVI.gif" height ="100%" style="border: solid 2px black">
-         </div>
-     </section>
+        <section>
+          <div class="container">
+            <h2 class="header">GeoTIFF</h2>
+              <div class="full" >
+              <p>One of the most common/functional raster formats, based of the Tag Image File Format (TIFF).  A TIFF file stores metadata (data about the data) as tags.  A GeoTIFF is a standard .tif image format plus additional tags spatial tags denoting spatial information including: </p>
+                <ul>
+                  <li>Extent (minimum x,y and maximum x,y)</li>
+                  <li>Resolution (cell size)</li>
+                  <li>Projection, Coordinate system, and datum</li>
+                </ul>
+            </div>
+          </div>
+        </section>
 
 
-     <section>
-      <div class="container">
-        <h2 class="header">Resolution vs. Scale</h2>
-        <div class="full">
-          <p>The scale of our analysis dictates our desired resolution.  But data resolution can limit the scale of our analysis.</p>
-        </div>
-      </div>
-    </section>
-
-     <section>
-      <div class="container">
-        <h2 class="header">Scale Dependence</h2>
-        <div class="full">
-          <img src="images/FI_Drone.JPG" width="80%" style="border: solid 2px black">
-         </div>
-      </div>
-    </section>
-
-
-     <section>
-      <div class="container">
-        <h2 class="header">Scale Dependence</h2>
-        <div class="left">
-          <!-- <img src="images/land_class.png" width="400"> -->
-          <p>Acknowledge the heterogeneity where appropriate.</p>
-            <ul>
-              <li>Large scale maps might need more attention to detail.</li>
-              <li>Higher resolution data.</li>
-            </ul>
-         </div>
-        <div class="right" style="text-align: center">
-          <img src="images/footprint_class.jpg" height="100%" style="border: solid 2px black">
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="header">Scale Dependence</h2>
-        <div class="left">
-        <p>Count on spatial autocorrelation<br> and call a unit homogeneous where appropriate.</p>
-            <ul>
-              <li>Smaller scale maps can be more generalized.</li>
-              <li>Lower resolution data.</li>
-            </ul>
-         </div>
-        <div class="right">
-          <img src="images/LCM.png" height="100%" style="border: solid 2px black">
-         </div>
-    </section>
+        <section>
+          <div class="container">
+            <h2 class="header">Other file types</h2>
+            <div class="full" >
+              <p>Raster data can come in many different formats.  You will likely encounter when working with raster data include:</p>
+              <ul'>
+                <li>IMG - A proprietary image format commonly used by ESRI products</li>
+                <li>JPEG2000 - A geospatial version of the common .jpg image type</li>
+                <li>ASCII - An older human readable format (simple text file) with slower performance than the types listed above</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
 
 
-     <section>
-      <div class="container">
-        <h2 class="header">Scale Dependence</h2>
-        <div class="left">
-        <p>At even smaller scales, more and more generalization is required.</p>
-            <ul>
-              <li>Some features become indistinguishable</li>
-              <li>Even lower resolution data is sufficient</li>
-            </ul>
-         </div>
-        <div class="right" style="text-align: center">
-          <img src="images/DeltaMap.png" height="100%" style="border: solid 2px black">
-         </div>
-        </div>
-    </section>
-
-
-    <section>
-      <div class="container">
-        <h2 class="header">Spatial Data Models</h2>
-        <div class="full">
-          <p>Raster and vector models are distinct approaches for addressing the same task.</p>
-          <img src="images/03-vector-v-raster.jpg"  width="100%" style="border: solid 2px black">
-        </div>
-    </section>
-
-
-    <section>
-      <div class="container">
-        <h1 class="title">TopHat Question 4</h1>
-          <div class="question">
-            <p>Spatial data models exploit spatial autocorrelation to simplify our representation of spatial features.</p>
-            <ul>
-              <li>True</li>
-              <li>False</li>
-            </ul>
-        </div>
-      </div>
-    </section>
 
     </div><!-- .slides -->
 
