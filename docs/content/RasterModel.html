@@ -316,85 +316,113 @@ ol ol li.nl::before {
           </div>
           </div>
         </section>
+        
+        <section>
+          <div class="container">
+            <h2 class="header">Mixed Pixel Problem</h2>
+            <div class="left" >
+              <p>One cell: one value</p>
+              <ul>
+                <li>What if it covers multiple values?</li>
+                <ul>
+                  <li>A: Winner take all</li>
+                  <li>B: Cell center </li>
+                </ul>
+                <li>Other options?</li>
+                <ul>
+                  <li>Containment - if a value of interest is anywhere within a cell</li>
+                  <ul>
+                    <li>e.g. invasive species presence</li>
+                  </ul>
+                </ul>
+              </ul>
+            </div>
+            <div class="right">
+              <img src="images/03-mixed-pixel.jpg">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Implications</h2>
+            <div class="left" >
+              <p>Loss of information during rasterization.</p>
+              <ul>
+                <li>A "bigger" issue for larger cells.</li>
+                <li>At a certain point features become unrecognizable.</li>
+                <li>Higher resolution = larger file for equivalent areas.</li>
+              </ul>
+            </div>
+            <div class="right">
+              <img src="images/03-raster-resolution.png" height="100%" style="border: solid 2px black">
+             </div>
+          </div>
+        </section>
+  
+        <section>
+          <div class="container">
+          <h1 class="title">TopHat Question 2</h1>
+              <div class="question">
+              <p>This term describes how information is lost when creating a raster image.</p>
+              <ul>
+                  <li>Resolution</li>
+                  <li>Domain</li>
+                  <li>Mixed pixel problem</li>
+                  <li>Rasterization</li>
+              </ul>
+          </div>
+          </div>
+        </section>
 
         <section>
             <div class="container">
               <h2 class="header">File Size</h2>
-              <div class="full">
-                <p>The number of cells per image dictates file size:<br>Cells = rows x columns x bands.  </p>
+              <div class="left">
+                <p>The number of cells per image dictates file size.</p>
+                <ul>
+                  <li>Cells = rows x columns x bands</li>
+                  <li>Increases <b>exponentially</b> with resolution</li>
+                  <ul>
+                    <li>For a given extent</li>
+                  </ul>
+                  <li>Increases <b>linearly</b> with number of bands</li>
+                </ul>
+              </div>
+              <div class="right">
                 <table>
                   <tr>
                       <th>Extent</th>
                       <th>Bands</th>
                       <th>Cell Size</th>
-                      <th>Cells</th>
+                      <th>Number of Cells</th>
                   </tr>
                   <tr>
-                      <td>1 x 1 km</td>
+                      <td>1x1km</td>
                       <td>1</td>
-                      <td>100 m</td>
-                      <td>100 cells</td>
+                      <td>100m</td>
+                      <td>100</td>
                   </tr>
                   <tr>
-                      <td>1 x 1 km</td>
+                      <td>1x1km</td>
                       <td>1</td>
-                      <td>1 m</td>
-                      <td>1,000,000 cells</td>
+                      <td>1m</td>
+                      <td>1,000,000</td>
                   </tr>
-                      <td>1 x 1 km</td>
+                      <td>1x1km</td>
                       <td>3</td>
-                      <td>100 m</td>
-                      <td>300 cells</td>
+                      <td>100m</td>
+                      <td>300</td>
                   </tr>
                   <tr>
-                      <td>1 x 1 km</td>
+                      <td>1x1km</td>
                       <td>3</td>
-                      <td>1 m</td>
-                      <td>3,000,000 cells</td>
+                      <td>1m</td>
+                      <td>3,000,000</td>
                   </tr>
                 </table> 
               </div>
            </div>
-        </section>
-
-        <section>
-          <div class="container">
-            <h2 class="header">File Size</h2>
-              <div class="full">
-              <p>Increases <b>exponentially</b> with resolution and <b>linearly</b> with number of bands.</p>
-              <table>
-                <tr>
-                    <th>Extent</th>
-                    <th>Bands</th>
-                    <th>Cell Size</th>
-                    <th>Cells</th>
-                </tr>
-                <tr>
-                    <td>1 x 1 km</td>
-                    <td>1</td>
-                    <td>100 m</td>
-                    <td>100 cells</td>
-                </tr>
-                <tr>
-                    <td>1 x 1 km</td>
-                    <td>1</td>
-                    <td>1 m</td>
-                    <td>1,000,000 cells</td>
-                </tr>
-                    <td>1 x 1 km</td>
-                    <td>3</td>
-                    <td>100 m</td>
-                    <td>300 cells</td>
-                </tr>
-                <tr>
-                    <td>1 x 1 km</td>
-                    <td>3</td>
-                    <td>1 m</td>
-                    <td>3,000,000 cells</td>
-                </tr>
-              </table> 
-            </div> 
-          </div>
         </section>
       
         <section>
@@ -415,7 +443,7 @@ ol ol li.nl::before {
   
         <section>
             <div class="container">
-            <h1 class="title">TopHat Question 2</h1>
+            <h1 class="title">TopHat Question 3</h1>
               <div class="question">
                 <p>You downloaded a 3 band LANDSAT8 image covering the UBC campus.  The image's dimensions are 6000m (rows) by 4500m (columns) and the resolution (cell size) is 30m.  How many cells does the image contain?</p>
                 <ul>
@@ -476,13 +504,11 @@ ol ol li.nl::before {
                   </ul>
               </ul>
             </div>
-            <div class="right">
-              <img src="images/03-raster-overlay.png" width="100%" style="border: solid 2px black">
+            <div class="right" style="text-align: center">
+              <img src="images/RasterCalculator.png" height="100%" style="border: solid 2px black">
             </div>
           </div>
         </section>
-
-
 
         <section>
           <div class="container">
@@ -509,48 +535,8 @@ ol ol li.nl::before {
                   </ul>
                 </ul>
               </div>
-
-          </div>
-         </section>
-
-         <section>
-          <div class="container">
-            <h2 class="header">Implications</h2>
-            <div class="left" >
-            <p>Loss of information during rasterization.</p>
-            <ul>
-              <li>A "bigger" issue for larger cells.</li>
-              <li>At a certain point features become unrecognizable.</li>
-              <li>Higher resolution = larger file for equivalent areas.</li>
-            </ul>
-             </div>
-            <div class="right">
-              <img src="images/03-raster-resolution.png" width="100%" style="border: solid 2px black">
-             </div>
+           </div>
         </section>
-  
-        <section>
-          <div class="container">
-            <h2 class="header">Mixed Pixel Problem</h2>
-            <div class="left" >
-              <p>One cell: one value</p>
-              <ul>
-                <li>What if it covers multiple values?</li>
-                <ul>
-                  <li>A: Winner take all</li>
-                  <li>B: Cell center </li>
-                </ul>
-                <li>Other options?</li>
-              </ul>
-            </div>
-            <div class="right">
-              <img src="images/03-mixed-pixel.jpg">
-            </div>
-          </div>
-        </section>
-  
-
-
 
         <section>
           <div class="container">
@@ -566,13 +552,12 @@ ol ol li.nl::before {
           </div>
         </section>
 
-
         <section>
           <div class="container">
             <h2 class="header">Other file types</h2>
             <div class="full" >
               <p>Raster data can come in many different formats.  You will likely encounter when working with raster data include:</p>
-              <ul'>
+              <ul>
                 <li>IMG - A proprietary image format commonly used by ESRI products</li>
                 <li>JPEG2000 - A geospatial version of the common .jpg image type</li>
                 <li>ASCII - An older human readable format (simple text file) with slower performance than the types listed above</li>
@@ -581,6 +566,21 @@ ol ol li.nl::before {
             </div>
           </section>
 
+          
+        <section>
+          <div class="container">
+           <h1 class="title">TopHat Question 4</h1>
+              <div class="question">
+              <p>The Raster Calculator tool lets you:</p>
+              <ul>
+                  <li>Evaluate algebraic expressions using raster layers as inputs</li>
+                  <li>Create raster layers</li>
+                  <li>Calculate the area of raster layers</li>
+                  <li>Overlay raster and vector layers</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
 
 

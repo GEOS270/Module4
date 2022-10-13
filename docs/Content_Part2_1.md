@@ -18,12 +18,12 @@ nav_order: 2
 
 # Raster Data
 
-A simple but storage intensive method for representing data that is widely ustilized in GIS.  Rasters are commonly encountered as: satellite and drone imagery, elevation models, climate data, model outputs, and scanned maps.   
+A simple but storage intensive method for representing data that is widely utilized in GIS.  Rasters are commonly encountered as: satellite and drone imagery, elevation models, climate data, model outputs, and scanned maps.   
 
 <div style="overflow: hidden;
   padding-top: 56.25%;
   position: relative">
-  <iframe src="content/Raster.html" title="Processes" scrolling="no" frameborder="0"
+  <iframe src="content/RasterModel.html" title="Processes" scrolling="no" frameborder="0"
     style="border: 0;
    height: 100%;
    left: 0;
@@ -33,5 +33,5 @@ A simple but storage intensive method for representing data that is widely ustil
    <p>Your browser does not support iframes.</p>
  </iframe>
 </div>
-<a href="content/Raster.html" target="_blank">View Image in New Tab</a>
+<a href="content/RasterModel.html" target="_blank">View Image in New Tab</a>
 
