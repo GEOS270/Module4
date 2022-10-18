@@ -23,7 +23,7 @@ In GIS, vector data are commonly encountered as: political boundaries, cenus dat
 <div style="overflow: hidden;
   padding-top: 56.25%;
   position: relative">
-  <iframe src="content/Vector.html" title="Processes" scrolling="no" frameborder="0"
+  <iframe src="content/VectorModel.html" title="Processes" scrolling="no" frameborder="0"
     style="border: 0;
    height: 100%;
    left: 0;
@@ -33,10 +33,9 @@ In GIS, vector data are commonly encountered as: political boundaries, cenus dat
    <p>Your browser does not support iframes.</p>
  </iframe>
 </div>
-<a href="content/Vector.html" target="_blank">View Image in New Tab</a>
+<a href="content/VectorModel.html" target="_blank">View Image in New Tab</a>
 
 
-Download the slides as a .pdf [here](https://raw.githubusercontent.com/June-Skeeter/Module2_GEOS270/main/docs/content/Vector.pdf)
 
 
 ## Sample GeoJson File
