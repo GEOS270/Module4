@@ -622,15 +622,49 @@ ol ol li.nl::before {
                 <li>Won't update if field values change</li>
                 <li>Not always easy to use or intuitive</li>
                   <ul>
+                    <li>Lacks some basic functionality</li>
                     <li>Can't calculate the sum of a column without extra steps</li>
                   </ul>
               </ul>
             </div>
-            <div class = "figure">
-              <img src="images/FieldCalc.png" height="100%" style="border: solid 2px black">
+            <div class="r-stack">
+                <div class = "figure fragment fade-out" data-fragment-index="0">
+                  <img src="images/Pop_Dense.png" height="80%" style="border: solid 2px black">
+                </div>
+
+                <div class = "figure fragment fade-in" data-fragment-index="0">
+                    <img src="images/FieldCalc.png" height="100%" style="border: solid 2px black">
+                  </div>
             </div>
           </div>
         </section>
+
+        
+        <section>
+            <div class="container">
+              <h2 class="header">Topology</h2>
+              <div class="left">
+                <p>The spatial relationships between geographic features.</p>
+                <ul>
+                <li>An important aspect of network analysis (route finding)</li>
+                <ul>
+                    <li>Google maps uses topology every time you search for directions</li>
+                    <ul>
+                        <li>Different rules for different features (pedestrian, car, transit)</li>
+                    </ul>
+                </ul>
+                  <li>We can specify rules e.g.:</li>
+                  <ul>
+                    <li>Polygons (i.e. buildings) cannot overlap</li>
+                    <li>Points (i.e. fire hydrants) must be attached to lines (i.e. water mains)</li>
+                  </ul>
+                </ul>
+              </div>
+              <div class = "right">
+                <img src="images/Topology.gif" width="100%" style="border: solid 2px black; background-color: white;">
+              </div>
+            </div>
+          </section>
 
         <section>
           <div class="container">
@@ -644,11 +678,30 @@ ol ol li.nl::before {
                     </ul></li>
                     <li>Graphic output is usually "cleaner"</li>
                     <li>Easy to query and select by attributes</li>
-                    <li>Topology (connectivity) - Proximity & Network Analysis </li>
+                    <li>Topology (connectivity)</li>
+                    <ul>
+                        <li>Proximity & Network Analysis</li>
+                    </ul>
                 </ul>
               </div>
            </div>
         </section>
+        
+        <section>
+            <div class="container">
+             <h1 class="title">TopHat Question 4</h1>
+                <div class="question">
+                <p>This term describes the spatial relationships between features:</p>
+                <ul>
+                    <li>Topology</li>
+                    <li>Resolution</li>
+                    <li>Vertex</li>
+                    <li>Attributes</li>
+                    <li>Vector</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
         <section>
           <div class="container">
@@ -691,6 +744,7 @@ ol ol li.nl::before {
                 <ul>
                     <li><b>Does not</b> work for lines or polygons</li>
                 </ul>
+                <br>
                 <table style="font-size: .5em">
                     <tr>
                         <td>Name</td>
@@ -778,7 +832,7 @@ ol ol li.nl::before {
           
         <section>
           <div class="container">
-           <h1 class="title">TopHat Question 4</h1>
+           <h1 class="title">TopHat Question 5</h1>
               <div class="question">
               <p>The Vector data model is almost always a better choice than the raster data model because:</p>
               <ul>
