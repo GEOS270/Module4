@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- <meta charset="utf-8"> -->
+
+  <title>Reveal.js template</title>
+  <!-- credit https://bl.ocks.org/elipousson/f64814b1ee4aab5d83775bfbf556d35a -->
+
+  <meta name="description" content="Simple Reveal.js slidedeck template. Source files loaded from jsDelivr.">
+  <meta name="author" content="jitesh@spinspire.com">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+  <link id="theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/serif.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    // Load print, pdf stylesheets from jsDelivr
+    var srcUrlPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = srcUrlPrefix + (window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css');
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  <style>
+    
+.container {
+  position: fixed;
+    height: 700px;
+    width: 100%;
+}
+
+.title{
+  position: relative;
+  top: 5%;
+}
+
+.subtitle{
+  position: relative;
+  top: 10%;
+}
+
+.question{
+  position: relative;
+  text-align: left;
+  top: 10%;
+}
+
+
+.header {
+  top: 1%;
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  text-align: left;
+}
+
+.full {
+  width: 95%;
+  top:  12%;
+  left: 0%;
+  text-align: left;
+  position: absolute; 
+}
+
+.left {
+  width: 49%;
+  height: 80%;
+  top: 12%;
+  left: 0%;
+  position: absolute;
+  text-align: left;
+}
+
+.right {
+  width: 49%;
+  top: 12%;
+  height: 80%;
+  left: 51%;
+  position: absolute;
+  text-align: left;
+}
+
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.figure {
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+
+.subfigure {
+  width: 100%;
+  /* height: 100%; */
+  left: 0%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+h1 {
+  display: block;
+  font-size: 3em !important; 
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+  
+h2 {
+  display: block;
+  font-size: 1.5em !important;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.reveal a {
+  color: blue;
+}
+
+.reveal {
+  background-color: #e6f9fc;
+}
+
+ul {
+    padding-left: 0;
+    font-size: 90%;
+
+} 
+
+ol {
+  counter-reset: item;
+  font-size: 90%;
+  padding-left: 0;
+}
+
+li.nl {
+  display: block;
+}
+
+li.nl:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+ol ol li.nl::before {
+    content: counters(item, ".") " ";
+}
+
+#main img {
+    float: left;
+}
+
+.col {
+    flex: 1
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+        <section>
+            <div class="title">
+                <h1>Vector Data Model</h1>
+            </div>
+            <div class="subtitle">
+                A more complex, but light weight format best suited for <b>discrete objects</b>.
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Vector Data Model</h2>
+                <div class="left">
+                <p>Represents space <b>discretely</b>:</p>
+                <ul>
+                    <li>Objects delineated using sets of coordinate pairs.</li>
+                    <ul>
+                        <li>Linked to descriptive attributes</li>
+                        <li>Many attributes per object</li>
+                    </ul>
+                </ul>
+                </div>
+                <div class="figure">
+                    <img src="images/03-vector-example.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+      
+        <section>
+            <div class="container">
+                <h2 class="header">Points</h2>
+                <div class="left">
+                    <p>A point feature is an individual x, y coordinate pair representing a precise location.</p>
+                    <ul>
+                      <li>“Zero-dimensional”</li>
+                      <li>No length, width, or area</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/03-vector-example.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Points</h2>
+                <div class="left">
+                    <p>Points are great for representing a variety of objects, depending on the scale:</p>
+                    <ul>
+                        <b>Almost Any Scale</b>
+                      <li>Trees</li>
+                      <li>Stop signs</li>
+                      <li>Fire hydrants</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/Van_Maple.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Points</h2>
+                <div class="left">
+                    <p>Points are great for representing a variety of objects, depending on the scale:</p>
+                    <ul>
+                        <b>Almost Any Scale</b>
+                        <li>Trees</li>
+                        <li>Stop signs</li>
+                        <li>Fire hydrants</li>
+                    </ul>
+                    <ul>
+                        <b>Smaller Scales</b>
+                        <li>Cities</li>
+                        <li>Wild Fires</li>
+                        <li>Airports</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/map-of-canada-with-cities.jpg" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Lines</h2>
+                <div class="left">
+                    <p>A line feature is a set of connected points.  <b>Must</b> have a start and end point.  <i>May</i> have middle points (vertices).</p>
+                    <ul>
+                        <li>One-dimensional</li>
+                        <li>Length</li>
+                        <li>No width or area</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/03-vector-example.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Lines</h2>
+                <div class="left">
+                    <p>Lines are also great for representing a variety of objects, depending on the scale:</p>
+                    <ul>
+                        <b>Almost Any Scale</b>
+                        <li>Hiking trails</li>
+                        <li>Power lines</li>
+                        <li>Water pipes</li>
+                    </ul>
+                    <!-- <ul>
+                        <b>Smaller Scales</b>
+                        <li>Roads</li>
+                        <li>Rivers</li>
+                        <li>Storm tracks</li>
+                    </ul> -->
+                </div>
+                <div class = "figure">
+                    <img src="images/AT_map.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Lines</h2>
+                <div class="left">
+                    <p>Lines are also great for representing a variety of objects, depending on the scale:</p>
+                    <ul>
+                        <b>Almost Any Scale</b>
+                        <li>Hiking trails</li>
+                        <li>Power lines</li>
+                        <li>Water pipes</li>
+                    </ul>
+                    <ul>
+                        <b>Smaller Scales</b>
+                        <li>Roads</li>
+                        <li>Rivers</li>
+                        <li>Storm tracks</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/03-river-scale.png" width="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Polygons</h2>
+                <div class="left">
+                    <p>A polygon feature consist of a set of <b>three</b> or more vertices connected by line segments (edges) that form an enclosed shape.</p>
+                    <ul>
+                        <li>Two-dimensional</li>
+                        <li>Length <b>&</b> width</li>
+                        <li><b>Area</b></li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/03-vector-example.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Polygons</h2>
+                <div class="left">
+                    <p>Preferred for many objects depending on scale:</p>
+                    <ul>
+                        <b>Almost Any Scale</b>
+                        <li>Climate units</li>
+                        <li>Lakes</li>
+                        <li>Political boundaries</li>
+                    </ul>
+                    <!-- <ul>
+                        <b>Smaller Scales</b>
+                        <li>Roads</li>
+                        <li>Rivers</li>
+                        <li>Storm tracks</li>
+                    </ul> -->
+                </div>
+                <div class = "figure">
+                    <img src="images/Canada_Köppen.svg" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <h2 class="header">Polygons</h2>
+                <div class="left">
+                    <p>Preferred for many objects depending on scale:</p>
+                    <ul>
+                        <b>Almost Any Scale</b>
+                        <li>Climate units</li>
+                        <li>Lakes</li>
+                        <li>Political boundaries</li>
+                    </ul>
+                    <ul>
+                        <b>Larger Scales</b>
+                        <li>Buildings</li>
+                        <li>Roads</li>
+                        <li>Cities</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <div style="overflow: hidden;
+                    padding-top: 100%;
+                    position: relative">
+                        <iframe src="Bldg.html" title="Processes" scrolling="no" frameborder="0"
+                        style="border: 0;
+                        height: 150%;
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Interior Rings</h2>
+                <div class="left">
+                    <p>All polygons are an enclosed shape.  Some can also have interior rings (holes).</p>
+                    <ul>
+                        <li>Each ring is a separate set of vertices and edges within the polygon</li>
+                        <li>Interior rings <b>cannot</b> overlap</li>
+                    </ul>  
+               </div>
+               <div class = "figure">
+                    <img src="images/doughnut.jpg" width="100%">
+               </div>
+        </section>
+
+        <section>
+            <div class="container">
+            <h1 class="title">TopHat Question 1</h1>
+                <div class="question">
+                <p>The vector data model can represent objects as: (select all that apply)</p>
+                <ul>
+                    <li>Points</li>
+                    <li>Lines</li>
+                    <li>Polygons</li>
+                    <li>Surfaces</li>
+                </ul>
+            </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Multi-part Objects</h2>
+                <div class="left">
+                    <p>When an object has multiple parts, the vector model allows for:</p>
+                    <ul>
+                        <li>Multi-polygons</li>
+                        <li>Multi-lines</li>
+                        <li>Multi-points</li>
+                    </ul>  
+               </div>
+               <div class = "figure">
+                    <img src="images/BC_Bounds.png" height="100%" style="border: solid 2px black">
+               </div>
+        </section>
+      
+        <section>
+            <div class="container">
+                <h2 class="header">Resolution</h2>
+                <div class="left">
+                  <p>Data resolution also applies to the vector model:</p>
+                    <ul>
+                        <li>Less straightforward than for raster model</li>
+                        <li>Spacing between vertices</li>
+                        <ul>
+                            <li>Smallest resolvable feature</li>
+                        </ul>
+                        <li>Higher resolution = larger filed size</li>
+                    </ul>
+                </div>
+                <div class = "figure">
+                    <img src="images/03-vector-resolution.png" height="100%" style="border: solid 2px black">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+            <h1 class="title">TopHat Question 2</h1>
+                <div class="question">
+                <p>The resolution of a vector layer is defined by</p>
+                <ul>
+                    <li>The cell size</li>
+                    <li>The spacing between vertices</li>
+                    <li>The point size</li>
+                    <li>The number of attributes</li>
+                </ul>
+            </div>
+            </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Attributes</h2>
+            <div class="left">
+              <p>Non-spatial data can be stored in an <b>Attribute Table</b> separate from the spatial data.</p>
+              <ul>
+                <li>Attributes are linked by an <b>index</b></li>
+                <ul>
+                    <li>The index is a <b>unique</b> identifier</li>
+                    <li>No two objects can have the same index</li>
+                    <li>Often labelled as the "FID" in Arc</li>
+                </ul>
+              </ul>
+            </div>
+            <div class = "figure">
+                <img src="images/03-vector-attribute.png" height="100%" style="border: solid 2px black">
+            </div>
+          </div>
+        </section>
+
+        <section>
+            <div class="container">
+              <h2 class="header">Attributes</h2>
+              <div class="left">
+                <img src="images/03-vector.png" height="100%" style="border: solid 2px black">
+              </div>
+              <div class = "figure">
+                  <img src="images/03-vector-attribute.png" height="100%" style="border: solid 2px black">
+              </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+              <h2 class="header">Attributes</h2>
+              <div class="left">
+                <p>Non-spatial data can be stored in an <b>Attribute Table</b> separate from the spatial data.</p>
+                <ul>
+                  <li>Attributes are linked by an <b>index</b></li>
+                  <ul>
+                      <li>The index is a <b>unique</b> identifier</li>
+                      <li>No two objects can have the same index</li>
+                      <li>Often labelled as the "FID" in Arc</li>
+                  </ul>
+                  <li>Ability to store many attributes</li>
+                  <ul>
+                      <li>Less redundancy than raster model</li>
+                      <li>Easy to add new attributes</li>
+                  </ul>
+                </ul>
+              </div>
+              <div class = "figure">
+                  <img src="images/03-vector-attribute.png" height="100%" style="border: solid 2px black">
+              </div>
+            </div>
+        </section>
+
+
+        <section>
+          <div class="container">
+          <h1 class="title">TopHat Question 3</h1>
+              <div class="question">
+                <p>As with the raster data model, each vector object can only have one attribute.  We must stack objects if we need multiple attributes.</p>
+                <ul>
+                    <li>True</li>
+                    <li>False</li>
+                </ul>
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <div class="container">
+            <h2 class="header">Loss of Variability</h2>
+            <div class="left" >
+              <p>Similar to the mixed pixel problem, all space within a polygon (or along a line) is treated as homogenous</p>
+              <ul>
+                <li>What a unit covers multiple values?</li>
+                <ul>
+                  <li>Any variability is lost and the unit is treated as homogenous</li>
+                </ul>
+              </ul>
+            </div>
+            <div class = "figure">
+              <img src="images/BBECA.png" height="100%" style="border: solid 2px black">
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <div class="container">
+            <h2 class="header">Vector Overlay</h2>
+            <div class="left">
+              <p>Vector overlay operations are more computationally expensive than raster overlay.</p>
+              <ul>
+                <li>Involves calculating the relative positions of ever point/vertex in every layer to determine overlap, containment, etc.</li>
+                <li>Many different operations depending on needs</li>
+              </ul>
+            </div>
+            <div class = "figure">
+              <img src="images/Vector_Overlay_Operators.png" height="100%" style="border: solid 2px black; background-color: white;">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Field Calculator</h2>
+            <div class="left">
+              <p>The tool in Arc for performing calculations in the attribute table</p>
+              <ul>
+                <li>Fields can be "variables" in linear equations</li>
+                <li>Won't update if field values change</li>
+                <li>Not always easy to use or intuitive</li>
+                  <ul>
+                    <li>Can't calculate the sum of a column without extra steps</li>
+                  </ul>
+              </ul>
+            </div>
+            <div class = "figure">
+              <img src="images/FieldCalc.png" height="100%" style="border: solid 2px black">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Key Advantages</h2>
+              <div class="full">
+                <p>The vector data model is well suited for discrete objects:</p>
+                <ul>
+                    <li>Compact data structure
+                    <ul>
+                        <li>Smaller file sizes</li>
+                    </ul></li>
+                    <li>Graphic output is usually "cleaner"</li>
+                    <li>Easy to query and select by attributes</li>
+                    <li>Topology (connectivity) - Proximity & Network Analysis </li>
+                </ul>
+              </div>
+           </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="header">Shapefiles</h2>
+              <div class="full" >
+              <p>One of the most common file types you will encounter, stores the coordinates of vertices plus metadata.  Identified by a .shp tag.</p>
+              <ul>
+                <li>Object type: points/multi-points, lines/multi-lines, or polygons/multi-polygons.</li>
+                <ul>
+                  <li><b>Only</b> one type per .shp!</li>
+                </ul>
+                <li>Coordinate reference system (CRS).</li>
+                <li>Attribute table.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+            <div class="container">
+              <h2 class="header">GeoJSON</h2>
+                <div class="full" >
+                <p>A simple, lightweight format for most commonly encountered in web mapping. Identified by a .json tag.</p>
+                <ul>
+                    <li>Unlike shapefiles, a GeoJSON can mix of geometries.</li>
+                    <li>Encoded stylistic choices in the file.</li>
+                    <li>Larger File Size</li>
+                    <li><a href="https://geojson.io/#map=2/20.0/0.0)" target="_blank">An Example</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          
+          <section>
+            <div class="container">
+              <h2 class="header">Text Data</h2>
+              <div class="full">
+                <p>Point objects can be stored as simple text flies.</p>
+                <ul>
+                    <li><b>Does not</b> work for lines or polygons</li>
+                </ul>
+                <table style="font-size: .5em">
+                    <tr>
+                        <td>Name</td>
+                        <td>Province</td>
+                        <td>Climate ID</td>
+                        <td>Latitude (Decimal Degrees)</td>
+                        <td>Longitude (Decimal Degrees)</td>
+                    </tr>
+                    <tr>
+                        <td>ACTIVE PASS</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010066</td>
+                        <td>48.87</td>
+                        <td>-123.28</td>
+                    </tr>
+                    <tr>
+                        <td>ALBERT HEAD</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010235</td>
+                        <td>48.40</td>
+                        <td>-123.48</td>
+                    </tr>
+                    <tr>
+                        <td>BAMBERTON OCEAN CEMENT</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010595</td>
+                        <td>48.58</td>
+                        <td>-123.52</td>
+                    </tr>
+                    <tr>
+                        <td>BEAR CREEK</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010720</td>
+                        <td>48.50</td>
+                        <td>-124.00</td>
+                    </tr>
+                    <tr>
+                        <td>BEAVER LAKE</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010774</td>
+                        <td>48.50</td>
+                        <td>-123.35</td>
+                    </tr>
+                    <tr>
+                        <td>BECHER BAY</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010780</td>
+                        <td>48.33</td>
+                        <td>-123.63</td>
+                    </tr>
+                    <tr>
+                        <td>BRENTWOOD BAY 2</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010960</td>
+                        <td>48.60</td>
+                        <td>-123.47</td>
+                    </tr>
+                    <tr>
+                        <td>BRENTWOOD CLARKE ROAD</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010961</td>
+                        <td>48.57</td>
+                        <td>-123.45</td>
+                    </tr>
+                    <tr>
+                        <td>BRENTWOOD W SAANICH RD</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1010965</td>
+                        <td>48.57</td>
+                        <td>-123.43</td>
+                    </tr>
+                    <tr>
+                        <td>CENTRAL SAANICH VEYANESS</td>
+                        <td>BRITISH COLUMBIA</td>
+                        <td>1011467</td>
+                        <td>48.58</td>
+                        <td>-123.42</td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+
+          </section>
+
+          
+        <section>
+          <div class="container">
+           <h1 class="title">TopHat Question 4</h1>
+              <div class="question">
+              <p>The Vector data model is almost always a better choice than the raster data model because:</p>
+              <ul>
+                  <li>It represents objects discretely</li>
+                  <li>It has better resolution for a given file size</li>
+                  <li>We can store many attributes for one object without creating redundancy</li>
+                  <li>The vector data model is not always better than the raster data model</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+
+
+    </div><!-- .slides -->
+
+    
+  </div><!-- .reveal -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/math/math.min.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      overview: false,
+      loop: false,
+      margin: 0.03,
+      width: 1350,
+      height: 700,
+      transition: 'none',
+      plugins: [ RevealMath.MathJax2,
+    // RevealMarkdown
+         ]
+    },
+
+
+    );
+  </script>
+</body>
+
+</html>

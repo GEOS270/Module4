@@ -7,13 +7,6 @@ nav_order: 1
 
 # Spatial Data Models
 
-We use data models represent phenomena in a GIS.  A data model is just a simplified abstractions of reality.
-
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Tnd1emcyI_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-
-
-# Spatial Data Models
-
 Spatial Data has some unique properties which mean we need to implement specific strategies to work with it.  There are two key formats we work with in GIS for spatial data: **Raster** and **Vector**.  Both models can be used to represent most spatial phenomena; but they are not equally suited for all applications.
 
 <img src="docs/content/images/03-vector-v-raster.jpg" width="900">
@@ -71,7 +64,3 @@ Now that we've covered how we project spatial data, we can learn how we actually
 * Conduct Spatial Analysis
 * Normalize and Classify Data
 * Create Charts
-
-# Deliverables
-
-Every module will be scored out of 100 pts.  For this module will be be submitting one map and a some written responses.  You will also be taking a quiz consisting of multiple choice, numeric input, fill in the blank, etc. type questions.  See the [assessment page](docs/Assessment.md).
