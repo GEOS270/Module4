@@ -27,7 +27,7 @@ A key aspect of GIS is overlaying multiple data layers to generate new informati
 
 1) **Zonal Statistics**:  This method is faster, but can be applied in a more limited number of circumstances.  
 
-2) **Raster to Polygon Conversion**: This method involves converting between data types and requires more a few steps, but it is more flexible.
+2) **Raster to Polygon Conversion**: This method involves converting between data types and requires more steps, but it is more flexible.
 
 
 # Clean Up Your Workspace Selection

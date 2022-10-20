@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- <meta charset="utf-8"> -->
+
+  <title>Reveal.js template</title>
+  <!-- credit https://bl.ocks.org/elipousson/f64814b1ee4aab5d83775bfbf556d35a -->
+
+  <meta name="description" content="Simple Reveal.js slidedeck template. Source files loaded from jsDelivr.">
+  <meta name="author" content="jitesh@spinspire.com">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+  <link id="theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/serif.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    // Load print, pdf stylesheets from jsDelivr
+    var srcUrlPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = srcUrlPrefix + (window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css');
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  <style>
+    
+.container {
+  position: fixed;
+    height: 700px;
+    width: 100%;
+}
+
+.title{
+  position: relative;
+  top: 5%;
+}
+
+.subtitle{
+  position: relative;
+  top: 10%;
+}
+
+.question{
+  position: relative;
+  text-align: left;
+  top: 10%;
+}
+
+
+.header {
+  top: 1%;
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  text-align: left;
+}
+
+.full {
+  width: 95%;
+  top:  12%;
+  left: 0%;
+  text-align: left;
+  position: absolute; 
+}
+
+.left {
+  width: 49%;
+  height: 80%;
+  top: 12%;
+  left: 0%;
+  position: absolute;
+  text-align: left;
+}
+
+.right {
+  width: 49%;
+  top: 12%;
+  height: 80%;
+  left: 51%;
+  position: absolute;
+  text-align: left;
+}
+
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.figure {
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+
+.subfigure {
+  width: 100%;
+  /* height: 100%; */
+  left: 0%;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+}
+
+h1 {
+  display: block;
+  font-size: 3em !important; 
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+  
+h2 {
+  display: block;
+  font-size: 1.5em !important;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+
+h3 {
+  display: block;
+  font-size: 1.25em !important;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+
+.reveal a {
+  color: blue;
+}
+
+.reveal {
+  background-color: #e6f9fc;
+}
+
+ul {
+    padding-left: 0;
+    font-size: 90%;
+
+} 
+
+ol {
+  counter-reset: item;
+  font-size: 90%;
+  padding-left: 0;
+}
+
+li.nl {
+  display: block;
+}
+
+li.nl:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+ol ol li.nl::before {
+    content: counters(item, ".") " ";
+}
+
+#main img {
+    float: left;
+}
+
+.col {
+    flex: 1
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+        <section>
+            <div class="title">
+                <h1>Choosing Data Model</h1>
+            </div>
+            <div class="subtitle">
+                Which data model is better?
+            </div>
+        </section>
+        
+        <section>
+          <div class="container">
+            <h1 class="title">TopHat Question 1</h1>
+              <div class="question">
+              <p>The spatial data models we use in GIS work by taking advantage of: (select all that apply)</p>
+              <ul>
+                  <li>Tobler's First Law of Geography</li>
+                  <li>Causality</li>
+                  <li>Spatial Autocorrelation</li>
+                  <li>Spatial Heterogeneity</li>
+                  <li>Cheat Codes</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h1 class="title">TopHat Question 2</h1>
+              <div class="question">
+              <p>Bonnini's Paradox states that: As a model becomes more complex model becomes, it becomes:</p>
+              <ul>
+                <li>More useful</li>
+                <li>Less understandable</li>
+                <li>Easier to use</li>
+                <li>Larger</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="header">Comparing Data Models</h2>
+                <div class="left">
+                  <h3>Raster</h3>
+                  <p>Usually <b>continuous fields</b></p>
+                  <ul>
+                    <li>Full coverage over domain</li>
+                    <ul>
+                      <li>Grid of equally sized cells</li>
+                      <li>Data "gaps" must be given a value <br> (i.e., NODATA)</li>
+                    </ul>
+                    <li>Separate bands for each attribute</li>
+                    <ul>
+                      <li>Each cell has <b>one</b> value per band</li>
+                      <li>One raster can have <b>many</b> bands</li>
+                    </ul>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h3>Vector</h3>
+                  <p>Usually <b>discrete objects</b></p>
+                  <ul>
+                    <li>Only represents features of interest</li>
+                    <ul>
+                        <li>Points, Lines, and/or Polygons</li>
+                        <li>Can overlap, have gaps, or be continuous</li>
+                    </ul>
+                    <li>Each object can have <b>many</b> attributes</li>
+                    <ul>
+                        <li>Attribute table links spatial and non-spatial data</li>
+                    </ul>
+                    <li>Topology rules</li>
+                    <ul>
+                      <li>Connectivity and relationships between features</li>
+                    </ul>
+                  </ul>
+                </div>
+            </div>
+        </section>
+      
+        <section>
+          <div class="container">
+              <h2 class="header">Advantages</h2>
+              <div class="left">
+                <h3>Raster</h3>
+                <ul>
+                  <li>Good for continuous variables</li>
+                  <ul>
+                    <li>Features that do not have distinct boundaries</li>
+                  </ul>
+                  <li>Simple data structure</li>
+                  <ul>
+                    <li>Overlay is easy and efficient</li>
+                  </ul>
+                </ul>
+              </div>
+              <div class="right">
+                <h3>Vector</h3>
+                <ul>
+                  <li>Good for discrete objects</li>
+                  <ul>
+                    <li>Features that are have distinct, fixed in boundaries</li>
+                  </ul>
+                  <li>Compact data structure</li>
+                  <ul>
+                    <li>More efficient storage</li>
+                  </ul>
+                  <li>Easy to query and select by attributes</li>
+                </ul>
+              </div>
+          </div>
+        </section>
+      
+        <section>
+          <div class="container">
+              <h2 class="header">Disadvantages</h2>
+              <div class="left">
+                <h3>Raster</h3>
+                <ul>
+                  <li>Mixed pixel problem</li>
+                  <li>One attribute per cell</li>
+                  <li>Large data volumes</li>
+                </ul>
+              </div>
+              <div class="right">
+                <h3>Vector</h3>
+                <ul>
+                  <li>No variability within polygons</li>
+                  <li>Complex data structure</li>
+                  <li>Overlay can be computationally expensive</li>
+                </ul>
+              </div>
+          </div>
+        </section>    
+
+        <section>
+          <div class="container">
+            <h1 class="title">TopHat Question 3</h1>
+              <div class="question">
+              <p>Select the best method for representing each phenomena:</p>
+              <ul>
+                  <li>Precipitation observations from weather stations across Canada</li>
+                  <li>Precipitation forecasts for an atmospheric river</li>
+                  <li>Census tracts in Metro Vancouver</li>
+                  <li>Hiking trails in Garibaldi Park</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+              <h2 class="header">Resolution &. Scale</h2>
+              <div class="left">
+                <p>These properties can influence our choice of model.</p>
+                <ol>
+                  <li>How does the scale of our analysis dictate our desired resolution?</li>
+                  <li>How can resolution of the data limit the scale of our analysis?</li>
+                </ol>
+              </div>
+              <div class="r-stack">
+                <div class="figure fragment fade-out" data-fragment-index="0">
+                  <img src="images/03-scales.png" width="100%" style="border: solid 2px black">
+                </div>
+                <div class="figure fragment fade-in-then-out" data-fragment-index="0">
+                  <img src="images/coastal_scale.jpg" width="100%" style="border: solid 2px black">
+                </div>
+                <div class="figure fragment fade-in-then-out" data-fragment-index="1">
+                  <img src="images/03-resolution.gif" width="100%" style="border: solid 2px black">
+                </div>
+                <div class="figure fragment fade-in" data-fragment-index="2">
+                  <img src="images/scale_general.png" width="100%" style="border: solid 2px black">
+                </div>
+              </div>
+          </div>
+        </section>    
+
+        <section>
+          <div class="container">
+              <h2 class="header">Resolution &. Scale</h2>
+              <div class="full">
+                <p>We want to work with high resolution data because: <br>
+                  <b> &#8593; resolution = &#8595; generalization = &#8595; uncertainty</b></p>
+                <ul>
+                  <li>But in reality, this isn't always practical or possible.  High resolution data may</li>
+                  <ul>
+                    <li>Be too expensive $$$</li>
+                    <li>Take too long to collect or process</li>
+                    <li>Infringe on individuals privacy or endanger marginalized people</li>
+                  </ul>
+                  <li>We must try to strike a balance</li> 
+                  <ul>
+                    <li>Find what suits our needs without hindering adding unnecessary risk, expense, or complexity</li>
+                  </ul>
+                </ul>
+              </div>
+          </div>
+        </section>    
+
+        <section>
+          <div class="container">
+              <h2 class="header">Things to consider</h2>
+              <div class="full">
+                <p>What is the "lowest" acceptable resolution?</p>
+                <ul>
+                  <li>Smaller scale analysis won't need the same level of detail.</li> 
+                  <li>Looking at national immigration patterns, maybe you only need provincial level data?</li>
+                </ul>
+              </div>
+          </div>
+        </section>    
+
+        <section>
+          <div class="container">
+              <h2 class="header">Things to consider</h2>
+              <div class="full">
+                <p>Change the scope of our analysis?</p>
+                <ul>
+                  <li>If you need a high resolution analysis, work at a larger scale and focus on a small area.</li>
+                  <li>If you need to analyze a large area, work at small scales and accept the uncertainty that comes with coarser resolution.</li>
+              </ul>
+              </div>
+          </div>
+        </section>    
+
+        
+        <section>
+          <div class="container">
+            <h2 class ="header">Working Together</h2>
+            <div class="left">
+              <p>Frequently we'll end up working with both raster and vector data in the same analysis.</p>
+              <ul>
+                  <li>In Module 1, you worked with: </li>
+                  <ul>
+                      <li>Cholera deaths (points)</li>
+                      <ul>
+                        <li><b>Vector Data Model</b></li>
+                      </ul>
+                      <li>Kernel density (probability of deaths)</li>
+                      <ul>
+                        <li><b>Raster Data Model</b></li>
+                      </ul>
+                  </ul>
+              </ul>
+            </div>
+            <div class="figure">
+              <img src="images/Final_Map.png" height="100%"; style = "border:2px solid #555">
+            </div>
+          </div>
+        </section>
+      
+        <section>
+          <div class="container">
+            <h2 class ="header">Working Together</h2>
+            <div class="left">
+                  <li>In the <a href="https://geos270.github.io/Module4/docs/Application.html">Module 4 Lab</a> you are converting between data types</li>
+                  <ul>
+                      <li>NDVI (<b>Raster Data Model</b>)</li>
+                      <li>Census units (<b>Vector Data Model</b>)</li>
+                      <li>Exploring two approaches</li>
+                      <ul>
+                        <li><b>Zonal Statistics:</b><br> Faster, but in a more limited applicability.</li>
+                        <li><b>Raster to Polygon Conversion:</b> Converting between data types requires more, but it is more flexible.</li>
+                      </ul>
+                  </ul>
+              </ul>
+            </div>
+            <div class="figure">
+              <br>
+              <img src="images/Van_NDVI_Map.png" width="100%"; style = "border:2px solid #555">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h1 class="title">TopHat Question 4</h1>
+              <div class="question">
+              <p>Which of the following are true (select all that apply):</p>
+              <ul>
+                <li>Scale is a property of your analysis while resolution is a property of your data.</li>
+                <li>Scale is a property of your data while resolution is a property of your analysis.</li>
+                <li>Scale and resolution are properties of your analysis.</li>
+                <li>We always want to work with the highest resolution data available.</li>
+                <li>Both the raster and vector data models are useful ways to represent spatial data.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <div class="container">
+            <h1 class="title">TopHat Question 5</h1>
+              <div class="question">
+              <p>How do you feel about the pace of lecture and the lab workload so far?</p>
+              <ul>
+                <li>The pace of lecture is too fast and the lab workload is overwhelming.</li>
+                <li>The pace of lecture is good and the lab workload is overwhelming.</li>
+                <li>The pace of lecture is good and the lab workload is manageable.</li>
+                <li>The pace of lecture is too slow and the lab workload is manageable.</li>
+                <li>The pace of lecture is too slow and the lab workload is too easy.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+    </div><!-- .slides -->
+
+    
+  </div><!-- .reveal -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/math/math.min.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      overview: false,
+      loop: false,
+      margin: 0.03,
+      width: 1350,
+      height: 700,
+      transition: 'none',
+      plugins: [ RevealMath.MathJax2,
+    // RevealMarkdown
+         ]
+    },
+
+
+    );
+  </script>
+</body>
+
+</html>
